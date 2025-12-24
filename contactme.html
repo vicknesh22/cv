@@ -1,25 +1,126 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me - Vicknesh Rethinavelu</title>
-  </head>
-  <body>
-    <h1>My Contact Details</h1>
-    <ul>
-      <li>Phone: 8012895962</li>
-      <li>Email: vicknesh22@gmail.com</li>
-      <li>Github: <a href="https://github.com/vicknesh22"> github.com/vicknesh22</a> </li>
-      <li>Linkedin: <a href="https://www.linkedin.com/in/vicknesh22/"> linkedin.com/in/vicknesh22</a> </li>
-    </ul>
-    <form action="mailto:vicknesh22@gmail.com" method="post" enctype="text/plain">
-      <label>Your Name: </label>
-      <input type="text" name="Name" value=""><br>
-      <label>Your Email: </label>
-      <input type="email" name="Email" value=""><br>
-      <label>Message:</label><br>
-      <textarea name="Message" rows="10" cols="30"></textarea><br>
-      <input type="submit" name="submit" value="Send">
-    </form>
-  </body>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="profile-section">
+                <img src="vicknesh.png" alt="Vicknesh Rethinavelu" class="profile-img">
+                <div class="profile-info">
+                    <h1>Vicknesh Rethinavelu</h1>
+                    <p class="title">Cloud Operations Engineer | Platform Engineering Specialist</p>
+                    <div class="contact-links">
+                        <a href="index.html">Home</a> |
+                        <a href="hobbies.html">Hobbies</a> |
+                        <a href="https://www.linkedin.com/in/vicknesh22/" target="_blank">LinkedIn</a> |
+                        <a href="https://github.com/vicknesh22" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2>Get In Touch</h2>
+            <p>I'm always interested in discussing cloud infrastructure, platform engineering opportunities, DevOps challenges, or technical collaborations. Feel free to reach out through any of the channels below!</p>
+
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <h3>📧</h3>
+                    <p>Email</p>
+                    <small><a href="mailto:vicknesh22@gmail.com" style="color: white; text-decoration: underline;">vicknesh22@gmail.com</a></small>
+                </div>
+                <div class="achievement-card">
+                    <h3>📱</h3>
+                    <p>Phone</p>
+                    <small>+91 8012895962</small>
+                </div>
+                <div class="achievement-card">
+                    <h3>💼</h3>
+                    <p>LinkedIn</p>
+                    <small><a href="https://www.linkedin.com/in/vicknesh22/" target="_blank" style="color: white; text-decoration: underline;">linkedin.com/in/vicknesh22</a></small>
+                </div>
+                <div class="achievement-card">
+                    <h3>💻</h3>
+                    <p>GitHub</p>
+                    <small><a href="https://github.com/vicknesh22" target="_blank" style="color: white; text-decoration: underline;">github.com/vicknesh22</a></small>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Send Me a Message</h2>
+            <div class="job">
+                <form action="mailto:vicknesh22@gmail.com" method="post" enctype="text/plain" style="max-width: 600px;">
+                    <div style="margin-bottom: 20px;">
+                        <label for="name" style="display: block; margin-bottom: 8px; font-weight: 600; color: #2C3E50;">Your Name:</label>
+                        <input type="text" id="name" name="Name" required style="width: 100%; padding: 12px; border: 2px solid #E8EFF5; border-radius: 5px; font-size: 1em; font-family: inherit;">
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label for="email" style="display: block; margin-bottom: 8px; font-weight: 600; color: #2C3E50;">Your Email:</label>
+                        <input type="email" id="email" name="Email" required style="width: 100%; padding: 12px; border: 2px solid #E8EFF5; border-radius: 5px; font-size: 1em; font-family: inherit;">
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label for="message" style="display: block; margin-bottom: 8px; font-weight: 600; color: #2C3E50;">Message:</label>
+                        <textarea id="message" name="Message" rows="8" required style="width: 100%; padding: 12px; border: 2px solid #E8EFF5; border-radius: 5px; font-size: 1em; font-family: inherit; resize: vertical;"></textarea>
+                    </div>
+
+                    <div>
+                        <input type="submit" value="Send Message" style="background: linear-gradient(135deg, #16A085 0%, #1ABC9C 100%); color: white; padding: 12px 30px; border: none; border-radius: 5px; font-size: 1.1em; font-weight: 600; cursor: pointer; transition: transform 0.3s ease;">
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Open to Opportunities</h2>
+            <div class="project-card">
+                <h3>🎯 Looking For</h3>
+                <p>I'm open to technical leadership roles in platform engineering, cloud infrastructure, and DevOps. Particularly interested in:</p>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding-left: 25px; margin-bottom: 12px; position: relative; line-height: 1.7;">
+                        <span style="content: '▸'; color: #3498DB; font-weight: bold; position: absolute; left: 0;">▸</span>
+                        Senior Platform Engineering roles
+                    </li>
+                    <li style="padding-left: 25px; margin-bottom: 12px; position: relative; line-height: 1.7;">
+                        <span style="content: '▸'; color: #3498DB; font-weight: bold; position: absolute; left: 0;">▸</span>
+                        Cloud Infrastructure leadership positions
+                    </li>
+                    <li style="padding-left: 25px; margin-bottom: 12px; position: relative; line-height: 1.7;">
+                        <span style="content: '▸'; color: #3498DB; font-weight: bold; position: absolute; left: 0;">▸</span>
+                        DevOps/SRE team lead opportunities
+                    </li>
+                    <li style="padding-left: 25px; margin-bottom: 12px; position: relative; line-height: 1.7;">
+                        <span style="content: '▸'; color: #3498DB; font-weight: bold; position: absolute; left: 0;">▸</span>
+                        Technical consulting and advisory roles
+                    </li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <h3>🌏 Location</h3>
+                <p><strong>Current Location:</strong> Bengaluru, Karnataka, India</p>
+                <p><strong>Work Preference:</strong> Open to remote, hybrid, and on-site opportunities</p>
+                <p><strong>Availability:</strong> Ready to join immediately or with standard notice period</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="index.html">Home</a> |
+                <a href="hobbies.html">My Hobbies</a> |
+                <a href="https://github.com/vicknesh22" target="_blank">GitHub</a> |
+                <a href="https://www.linkedin.com/in/vicknesh22/" target="_blank">LinkedIn</a>
+            </div>
+            <p class="footer-text">© 2024 Vicknesh Rethinavelu | Platform Engineering Specialist</p>
+            <p class="footer-location">Bengaluru, India | Available for technical leadership roles</p>
+        </footer>
+    </div>
+</body>
 </html>

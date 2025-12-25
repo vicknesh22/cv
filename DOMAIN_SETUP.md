@@ -22,8 +22,7 @@ To activate your `vicknesh.is-a.dev` domain, you need to submit a registration t
 ```json
 {
   "owner": {
-    "username": "vicknesh22",
-    "email": "your-email@example.com"
+    "username": "vicknesh22"
   },
   "record": {
     "CNAME": "vicknesh22.github.io"
@@ -31,7 +30,7 @@ To activate your `vicknesh.is-a.dev` domain, you need to submit a registration t
 }
 ```
 
-**Important**: Replace `your-email@example.com` with your actual email address.
+**Note**: The email field is optional. You can add it if you want.
 
 4. **Commit and create Pull Request**
    - Commit the `vicknesh.json` file

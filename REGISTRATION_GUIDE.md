@@ -64,7 +64,7 @@ In your forked repository:
     "username": "vicknesh22",
     "email": "vicknesh22@gmail.com"
   },
-  "record": {
+  "records": {
     "CNAME": "vicknesh22.github.io"
   }
 }

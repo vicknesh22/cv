@@ -48,8 +48,8 @@ This is a professional CV and portfolio website for a Senior Cloud Operations En
     "username": "vicknesh22",
     "email": "vicknesh22@gmail.com"
   },
-  "record": {
-    "CNAME": "vicknesh22.github.io"
+  "records": {
+    "URL": "https://vicknesh22.github.io/cv"
   }
 }
 ```

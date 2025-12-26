@@ -6,6 +6,7 @@
     "email": "vicknesh22@gmail.com"
   },
   "record": {
-    "CNAME": "vicknesh22.github.io"
-  }
+    "URL": "https://vicknesh22.github.io/cv"
+  },
+  "proxied": false
 }

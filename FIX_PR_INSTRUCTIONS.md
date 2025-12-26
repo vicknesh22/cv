@@ -167,7 +167,7 @@ Using URL record to forward vicknesh.is-a.dev → vicknesh22.github.io/cv
 Before is-a.dev approves:
 - [ ] Site is accessible at https://vicknesh22.github.io/cv/
 - [ ] Updated vicknesh.json with URL record
-- [ ] Added `"proxied": false`
+- [ ] Removed `"proxied"` field (causes validation errors)
 - [ ] Committed changes to PR #30844
 - [ ] GitHub Pages is enabled and deployed
 

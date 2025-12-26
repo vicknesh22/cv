@@ -34,7 +34,7 @@ You need to update the file in your is-a.dev PR with the correct configuration:
     "username": "vicknesh22",
     "email": "vicknesh22@gmail.com"
   },
-  "record": {
+  "records": {
     "URL": "https://vicknesh22.github.io/cv"
   }
 }
@@ -68,7 +68,7 @@ You need to update the file in your is-a.dev PR with the correct configuration:
     "username": "vicknesh22",
     "email": "vicknesh22@gmail.com"
   },
-  "record": {
+  "records": {
     "URL": "https://vicknesh22.github.io/cv"
   }
 }

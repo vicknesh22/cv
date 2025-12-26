@@ -36,15 +36,14 @@ You need to update the file in your is-a.dev PR with the correct configuration:
   },
   "record": {
     "URL": "https://vicknesh22.github.io/cv"
-  },
-  "proxied": false
+  }
 }
 ```
 
 ### Key Changes:
 1. **Changed `CNAME` to `URL`** - Because we're forwarding to a subpath
 2. **Added full URL** - `https://vicknesh22.github.io/cv` (includes `/cv`)
-3. **Added `"proxied": false`** - Required for URL records
+3. **Removed `proxied` field** - Not needed for URL records and causes validation errors
 
 ---
 
@@ -71,8 +70,7 @@ You need to update the file in your is-a.dev PR with the correct configuration:
   },
   "record": {
     "URL": "https://vicknesh22.github.io/cv"
-  },
-  "proxied": false
+  }
 }
 ```
 

@@ -21,6 +21,7 @@
     <title>Vicknesh Rethinavelu - Cloud Operations Engineer | Platform Engineering Specialist</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/modern.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -329,9 +330,36 @@
                 <a href="https://github.com/vicknesh22" target="_blank">GitHub</a> |
                 <a href="https://www.linkedin.com/in/vicknesh22/" target="_blank">LinkedIn</a>
             </div>
-            <p class="footer-text">© 2024 Vicknesh Rethinavelu | Platform Engineering Specialist</p>
+            <p class="footer-text">© 2025 Vicknesh Rethinavelu | Platform Engineering Specialist</p>
             <p class="footer-location">Bengaluru, India | Available for technical leadership roles</p>
         </footer>
     </div>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <button class="fab" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+        </button>
+        <button class="fab" onclick="window.print()" aria-label="Print or Download CV">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+        });
+    </script>
 </body>
 </html>

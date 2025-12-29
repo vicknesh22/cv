@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vicknesh Rethinavelu - Resume</title>
+    <style>
+        /* Resume Print Styles - Minimal & Professional */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            font-size: 11pt;
+            line-height: 1.4;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .resume-container {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 35% 65%;
+        }
+
+        /* Left Column - Gray Background */
+        .left-column {
+            background: #f0f0f0;
+            padding: 40px 30px;
+        }
+
+        /* Right Column - White Background */
+        .right-column {
+            background: white;
+            padding: 40px 35px;
+        }
+
+        /* Header */
+        .header {
+            grid-column: 1 / -1;
+            background: white;
+            padding: 35px 40px 25px 40px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .name {
+            font-size: 28pt;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .job-title {
+            font-size: 13pt;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: normal;
+        }
+
+        /* Section Titles */
+        h2 {
+            font-size: 13pt;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: 11pt;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        /* Contact Section */
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            font-size: 10pt;
+        }
+
+        .contact-icon {
+            margin-right: 10px;
+            color: #666;
+            min-width: 18px;
+        }
+
+        /* Education */
+        .degree {
+            font-weight: bold;
+            font-size: 11pt;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+        }
+
+        .university {
+            color: #666;
+            margin-bottom: 8px;
+            font-size: 10pt;
+        }
+
+        .education-detail {
+            font-size: 9.5pt;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Certifications & Skills */
+        .cert-list, .skill-list {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        .cert-list li, .skill-list li {
+            margin-bottom: 6px;
+            font-size: 10pt;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .cert-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #666;
+        }
+
+        /* About Me */
+        .about-text {
+            font-size: 10pt;
+            line-height: 1.6;
+            color: #444;
+            text-align: justify;
+        }
+
+        /* Work Experience */
+        .job {
+            margin-bottom: 20px;
+        }
+
+        .job-header {
+            margin-bottom: 8px;
+        }
+
+        .company {
+            color: #666;
+            font-size: 10pt;
+            margin-bottom: 8px;
+        }
+
+        .job-responsibilities {
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .job-responsibilities li {
+            margin-bottom: 5px;
+            font-size: 10pt;
+            position: relative;
+            padding-left: 15px;
+            line-height: 1.5;
+        }
+
+        .job-responsibilities li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #666;
+        }
+
+        /* Projects */
+        .project {
+            margin-bottom: 15px;
+        }
+
+        .project-title {
+            font-size: 10.5pt;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .resume-container {
+                width: 100%;
+                margin: 0;
+                box-shadow: none;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        /* Print Button */
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #16A085;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .print-button:hover {
+            background: #138D75;
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button no-print" onclick="window.print()">Print / Save as PDF</button>
+
+    <div class="resume-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="name">VICKNESH RETHINAVELU</div>
+            <div class="job-title">CLOUD OPERATIONS ENGINEER</div>
+        </div>
+
+        <!-- Left Column -->
+        <div class="left-column">
+            <h2>CONTACT</h2>
+            <div class="contact-item">
+                <span class="contact-icon">◉</span>
+                <span>Bangalore</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">◉</span>
+                <span>vicknesh22@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">◉</span>
+                <span>linkedin.com/in/vicknesh22</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">◉</span>
+                <span>github.com/vicknesh22</span>
+            </div>
+
+            <h2>EDUCATION</h2>
+            <div class="degree">BACHELOR OF ELECTRICAL ENGINEERING</div>
+            <div class="university">Pondicherry University | 2015</div>
+            <div class="education-detail">Project on Modelling and analysis of high boost DC-DC converter - IEEE.</div>
+
+            <h2>CERTIFICATIONS</h2>
+            <ul class="cert-list">
+                <li>Kubernetes - CKAD & CKA (91%)</li>
+                <li>GCP - Associate Cloud Engineer</li>
+                <li>AWS - Solution Architect</li>
+                <li>IBM - Websphere</li>
+            </ul>
+
+            <h2>SKILLS</h2>
+            <div class="skill-list">
+                <div style="margin-bottom: 12px;">
+                    <strong>Cloud</strong><br>
+                    GCP, AWS, Azure
+                </div>
+                <div style="margin-bottom: 12px;">
+                    <strong>Kubernetes</strong><br>
+                    Expert-level knowledge
+                </div>
+                <div style="margin-bottom: 12px;">
+                    <strong>Programming</strong><br>
+                    Golang, Python, Shell
+                </div>
+                <div style="margin-bottom: 12px;">
+                    <strong>CI/CD</strong><br>
+                    Jenkins, Helm, Spinnaker
+                </div>
+                <div style="margin-bottom: 12px;">
+                    <strong>Monitoring</strong><br>
+                    Prometheus, Grafana, Loki
+                </div>
+                <div style="margin-bottom: 12px;">
+                    <strong>Databases</strong><br>
+                    MongoDB, Redis, MySQL
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+            <h2>ABOUT ME</h2>
+            <p class="about-text">
+                Senior Cloud Platform Engineer with 9+ years of experience specializing in cloud infrastructure,
+                container orchestration, and platform engineering. Proven track record of optimizing infrastructure
+                costs (₹10L+ annual savings) while improving performance. Expert in Kubernetes (CKA certified - 91% score),
+                multi-cloud environments (AWS, GCP, Azure), and building self-service developer platforms. Led critical
+                infrastructure migrations and automation projects reducing manual work by 38%. Published technical thought
+                leadership on Medium.
+            </p>
+
+            <h2>WORK EXPERIENCES</h2>
+
+            <div class="job">
+                <div class="job-header">
+                    <h3>CLOUD OPERATIONS ENGINEER</h3>
+                    <div class="company">MongoDB | Dec 2023 - Present</div>
+                </div>
+                <ul class="job-responsibilities">
+                    <li>Built Golang service reducing 38% manual work by categorizing issues and auto-applying playbook fixes using RabbitMQ, MongoDB, Jira APIs, Kubernetes</li>
+                    <li>Eliminated RabbitMQ dependency by building gateway endpoint with MongoDB Changestreams and Temporal framework</li>
+                    <li>Engineered multi-source correlation system using sliding window algorithm for proactive cloud outage detection</li>
+                    <li>Handle Atlas infrastructure issues from Go planner automations across AWS, GCP, and Azure</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h3>SENIOR DEVOPS ENGINEER</h3>
+                    <div class="company">NoBroker.com | Aug 2021 - Dec 2023</div>
+                </div>
+                <ul class="job-responsibilities">
+                    <li>Led Elasticsearch to ClickHouse migration achieving ₹10L+ annual savings, 10:1 compression ratio, 5,000+ logs/sec throughput</li>
+                    <li>Awarded Star Performer for cost optimization and performance improvements</li>
+                    <li>Promoted to Senior DevOps Engineer recognizing technical leadership and project delivery</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h3>DEVOPS ENGINEER</h3>
+                    <div class="company">NoBroker.com | Jun 2020 - Jul 2021</div>
+                </div>
+                <ul class="job-responsibilities">
+                    <li>Architected initial Kubernetes infrastructure for NoBrokerHood society management application</li>
+                    <li>Built self-service staging platform using Docker Swarm eliminating bottlenecks for 100+ developers</li>
+                    <li>Implemented Jenkins multi-branch pipelines with Perl automation scripts</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h3>DEVOPS ENGINEER</h3>
+                    <div class="company">DXC Technology | Apr 2019 - Jun 2020</div>
+                </div>
+                <ul class="job-responsibilities">
+                    <li>Multi-cloud infrastructure management (AWS, GCP, Azure)</li>
+                    <li>Led Terraform 0.11 to 0.12.1 migration project</li>
+                    <li>Received SPOT Award for exceptional project delivery</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h3>TECHNICAL LEAD</h3>
+                    <div class="company">Cognizant Technology Solutions | Jun 2017 - Apr 2019</div>
+                </div>
+                <ul class="job-responsibilities">
+                    <li>Production application server management and middleware operations</li>
+                    <li>Awarded Client Performer for operational excellence</li>
+                </ul>
+            </div>
+
+            <h2>PROJECTS</h2>
+            <div class="project">
+                <div class="project-title">Automated Infrastructure Issue Resolution (MongoDB)</div>
+                <div style="font-size: 9.5pt; color: #666; margin-bottom: 3px;">Tech: Golang, RabbitMQ, MongoDB, Kubernetes, Prometheus</div>
+                <div style="font-size: 9.5pt;">38% manual work reduction replacing 3 years of repetitive processes</div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">ClickHouse Logging Infrastructure (NoBroker)</div>
+                <div style="font-size: 9.5pt; color: #666; margin-bottom: 3px;">Tech: ClickHouse, Fluent Bit, Redash, Grafana</div>
+                <div style="font-size: 9.5pt;">₹10L+ annual savings, 10:1 compression, 5,000+ logs/sec throughput</div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">Project Blackbox (NoBroker)</div>
+                <div style="font-size: 9.5pt; color: #666; margin-bottom: 3px;">Tech: Docker Swarm, Jenkins, Traefik, Prometheus</div>
+                <div style="font-size: 9.5pt;">100+ developers enabled, <5min Git push to HTTPS deployment</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

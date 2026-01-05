@@ -291,27 +291,27 @@
                 </div>
                 <div style="margin-bottom: 12px;">
                     <strong>Kubernetes</strong><br>
-                    Expert-level knowledge
+                    Expert-level, HPA, Autoscaling
+                </div>
+                <div style="margin-bottom: 12px;">
+                    <strong>IaC</strong><br>
+                    Terraform, Helm Charts
                 </div>
                 <div style="margin-bottom: 12px;">
                     <strong>Programming</strong><br>
                     Golang, Python, Shell
                 </div>
                 <div style="margin-bottom: 12px;">
-                    <strong>CI/CD</strong><br>
-                    Jenkins, Helm, Spinnaker
+                    <strong>Big Data</strong><br>
+                    Trino, ClickHouse, GCS
                 </div>
                 <div style="margin-bottom: 12px;">
                     <strong>Monitoring</strong><br>
                     Prometheus, Grafana, Loki
                 </div>
                 <div style="margin-bottom: 12px;">
-                    <strong>Databases</strong><br>
-                    MongoDB, Redis, MySQL
-                </div>
-                <div style="margin-bottom: 12px;">
-                    <strong>Security</strong><br>
-                    PCI DSS, Server Hardening
+                    <strong>CI/CD</strong><br>
+                    Jenkins, Spinnaker
                 </div>
             </div>
         </div>
@@ -320,12 +320,12 @@
         <div class="right-column">
             <h2>ABOUT ME</h2>
             <p class="about-text">
-                Senior Cloud Platform Engineer with 9+ years of experience specializing in cloud infrastructure,
-                container orchestration, and platform engineering. Led a team of 5 DevOps engineers for 2 years.
-                Proven track record of optimizing infrastructure costs (₹10L+ annual savings) while improving performance.
-                Expert in Kubernetes (CKA certified - 91% score), multi-cloud environments (AWS, GCP, Azure), and building
-                self-service developer platforms. Led critical infrastructure migrations and automation projects reducing
-                manual work by 38%. Published technical thought leadership on Medium.
+                Senior Cloud Platform Engineer with 9+ years of experience in large-scale distributed systems,
+                AI/ML infrastructure, and big data platforms. Expert in Kubernetes (CKA 91%), Terraform, and
+                multi-cloud (AWS, GCP, Azure). Built GPU cloud infrastructure for AI workloads and deployed
+                Trino analytics platform processing 26TB data lake with 5,500+ queries/day. Led team of 5 engineers.
+                Strong focus on infrastructure automation, cost optimization (₹10L+ savings, 70% via preemptible VMs),
+                and reliability at scale. Published technical thought leadership on Medium.
             </p>
 
             <h2>WORK EXPERIENCES</h2>
@@ -350,10 +350,11 @@
                 </div>
                 <ul class="job-responsibilities">
                     <li><strong>Led a team of 5 DevOps engineers</strong> for 2 years, mentoring on Kubernetes, CI/CD, and cloud best practices</li>
+                    <li><strong>AI/ML Infrastructure:</strong> Set up initial GPU cloud infrastructure on GCP for ConvoZen.ai (AI-powered conversation analytics platform)</li>
+                    <li><strong>Big Data Platform:</strong> Deployed Trino on Kubernetes for 26TB data lake analytics - 5,500+ queries/day processing 2.6TB data with HPA autoscaling</li>
                     <li><strong>PCI DSS Compliance Lead:</strong> Spearheaded certification for NBPay - server hardening, network segmentation, cloud security controls</li>
                     <li>Led Elasticsearch to ClickHouse migration achieving ₹10L+ annual savings, 10:1 compression ratio, 5,000+ logs/sec throughput</li>
-                    <li>Established team processes for incident response, on-call rotations, and IaC code reviews</li>
-                    <li>Awarded Star Performer for cost optimization; promoted recognizing technical leadership</li>
+                    <li>Optimized infrastructure costs using Preemptible VMs (70% savings), cluster autoscaling, and scheduled scaling for off-peak hours</li>
                 </ul>
             </div>
 
@@ -401,15 +402,21 @@
             </div>
 
             <div class="project">
-                <div class="project-title">ClickHouse Logging Infrastructure (NoBroker)</div>
-                <div style="font-size: 9.5pt; color: #666; margin-bottom: 3px;">Tech: ClickHouse, Fluent Bit, Redash, Grafana</div>
-                <div style="font-size: 9.5pt;">₹10L+ annual savings, 10:1 compression, 5,000+ logs/sec throughput</div>
+                <div class="project-title">Trino Big Data Analytics Platform (NoBroker)</div>
+                <div style="font-size: 9.5pt; color: #666; margin-bottom: 3px;">Tech: Trino, Kubernetes, Helm, GCS Data Lake, HPA, Preemptible VMs</div>
+                <div style="font-size: 9.5pt;">26TB data lake, 5,500+ queries/day, auto-scaling with 70% cost savings</div>
             </div>
 
             <div class="project">
-                <div class="project-title">Project Blackbox (NoBroker)</div>
-                <div style="font-size: 9.5pt; color: #666; margin-bottom: 3px;">Tech: Docker Swarm, Jenkins, Traefik, Prometheus</div>
-                <div style="font-size: 9.5pt;">100+ developers enabled, <5min Git push to HTTPS deployment</div>
+                <div class="project-title">ConvoZen.ai GPU Infrastructure (NoBroker)</div>
+                <div style="font-size: 9.5pt; color: #666; margin-bottom: 3px;">Tech: GCP, GPU Instances, Kubernetes, Terraform</div>
+                <div style="font-size: 9.5pt;">Initial AI/ML infrastructure setup for conversation analytics platform</div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">ClickHouse Logging Infrastructure (NoBroker)</div>
+                <div style="font-size: 9.5pt; color: #666; margin-bottom: 3px;">Tech: ClickHouse, Fluent Bit, Redash, Grafana</div>
+                <div style="font-size: 9.5pt;">₹10L+ annual savings, 10:1 compression, 5,000+ logs/sec throughput</div>
             </div>
         </div>
     </div>

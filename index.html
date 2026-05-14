@@ -1,434 +1,2581 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light" data-density="comfortable">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vicknesh Rethinavelu - Senior Cloud Operations Engineer with 9+ years experience in Kubernetes, AWS, GCP, Azure. CKA certified with 91% score. Platform engineering specialist.">
-    <meta name="keywords" content="Cloud Engineer, DevOps, Kubernetes, AWS, GCP, Azure, Platform Engineering, SRE">
-    <meta name="author" content="Vicknesh Rethinavelu">
-    <meta name="theme-color" content="#16A085">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Vicknesh Rethinavelu — Senior Cloud Platform Engineer. 9+ years, CKA 91%, multi-cloud expert (AWS · GCP · Azure). Kubernetes, Golang, ClickHouse.">
+<meta name="author" content="Vicknesh Rethinavelu">
+<meta property="og:title" content="Vicknesh Rethinavelu — Cloud Operations Engineer">
+<meta property="og:description" content="Senior Cloud Platform Engineer. 9+ years · CKA 91% · Multi-cloud.">
+<meta property="og:url" content="https://vicknesh.is-a.dev/">
 
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Vicknesh Rethinavelu - Cloud Operations Engineer">
-    <meta property="og:description" content="Senior Cloud Operations Engineer with 9+ years experience. CKA 91%. Platform Engineering Specialist.">
-    <meta property="og:url" content="https://vicknesh.is-a.dev/">
+<title>Vicknesh Rethinavelu — Cloud Operations Engineer</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-    <!-- Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <title>Vicknesh Rethinavelu - Cloud Operations Engineer | Platform Engineering Specialist</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/modern.js" defer></script>
+<style>
+/* ------------------------------------------------------------------
+   Tokens
+------------------------------------------------------------------ */
+:root {
+  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --font-body: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Light palette — warm paper */
+  --bg: oklch(0.985 0.005 85);
+  --bg-elev: oklch(0.965 0.006 85);
+  --bg-deep: oklch(0.94 0.008 85);
+  --fg: oklch(0.22 0.012 70);
+  --fg-soft: oklch(0.38 0.012 70);
+  --muted: oklch(0.55 0.012 70);
+  --border: oklch(0.87 0.01 80);
+  --border-strong: oklch(0.78 0.01 80);
+  --accent: oklch(0.56 0.13 40);
+  --accent-fg: oklch(0.99 0.005 85);
+  --accent-soft: oklch(0.94 0.04 40);
+  --highlight: oklch(0.92 0.08 90);
+
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 14px;
+
+  --reading-w: 720px;
+  --rail-w: 240px;
+  --rail-gap: 64px;
+  --pad-x: clamp(20px, 4vw, 56px);
+
+  --shadow-sm: 0 1px 2px oklch(0.2 0 0 / 0.04);
+  --shadow: 0 4px 16px oklch(0.2 0 0 / 0.06), 0 1px 2px oklch(0.2 0 0 / 0.04);
+  --shadow-lg: 0 24px 48px oklch(0.2 0 0 / 0.12), 0 8px 16px oklch(0.2 0 0 / 0.06);
+}
+
+html[data-theme="dark"] {
+  --bg: oklch(0.17 0.008 60);
+  --bg-elev: oklch(0.21 0.008 60);
+  --bg-deep: oklch(0.14 0.008 60);
+  --fg: oklch(0.96 0.005 80);
+  --fg-soft: oklch(0.82 0.008 80);
+  --muted: oklch(0.65 0.012 70);
+  --border: oklch(0.3 0.01 60);
+  --border-strong: oklch(0.42 0.012 60);
+  --accent: oklch(0.72 0.13 45);
+  --accent-fg: oklch(0.15 0.01 60);
+  --accent-soft: oklch(0.32 0.06 45);
+  --highlight: oklch(0.4 0.08 90);
+  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.3);
+  --shadow: 0 4px 16px oklch(0 0 0 / 0.4), 0 1px 2px oklch(0 0 0 / 0.3);
+  --shadow-lg: 0 24px 48px oklch(0 0 0 / 0.5), 0 8px 16px oklch(0 0 0 / 0.35);
+}
+
+html[data-density="compact"] {
+  --reading-w: 760px;
+}
+html[data-density="compact"] .role,
+html[data-density="compact"] .project { padding: 18px 0; }
+html[data-density="compact"] .section { margin-top: 56px; }
+html[data-density="compact"] .role-body li { padding: 4px 0; }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "cv11";
+}
+
+::selection { background: var(--accent); color: var(--accent-fg); }
+
+a {
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-strong);
+  transition: color 0.15s, border-color 0.15s;
+}
+a:hover { color: var(--accent); border-color: var(--accent); }
+
+strong { font-weight: 600; color: var(--fg); }
+em { font-style: italic; font-family: var(--font-display); font-size: 1.05em; }
+
+/* ------------------------------------------------------------------
+   Top bar
+------------------------------------------------------------------ */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in oklch, var(--bg) 88%, transparent);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border-bottom: 1px solid color-mix(in oklch, var(--border) 60%, transparent);
+}
+.topbar-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 14px var(--pad-x);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  color: var(--fg);
+}
+.brand-mark {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: var(--fg);
+  color: var(--bg);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.brand-name { font-weight: 500; }
+.brand-slash { color: var(--muted); }
+.brand-role { color: var(--muted); }
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--fg-soft);
+}
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: oklch(0.65 0.18 145);
+  box-shadow: 0 0 0 3px color-mix(in oklch, oklch(0.65 0.18 145) 25%, transparent);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 3px color-mix(in oklch, oklch(0.65 0.18 145) 25%, transparent); }
+  50% { box-shadow: 0 0 0 6px color-mix(in oklch, oklch(0.65 0.18 145) 5%, transparent); }
+}
+
+/* Live section breadcrumb */
+.crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0;
+  transform: translateY(-2px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.crumb.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.crumb-mark { color: var(--accent); font-weight: 500; }
+.crumb-num { color: var(--fg-soft); }
+.crumb-sep { color: var(--border-strong); }
+.crumb-name { color: var(--fg); font-weight: 500; }
+
+.topbar-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--fg-soft);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: all 0.15s;
+  font-family: var(--font-body);
+}
+.icon-btn:hover { background: var(--bg-elev); color: var(--fg); border-color: var(--border); }
+.icon-btn svg { width: 16px; height: 16px; }
+
+.kbd-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 10px 0 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  color: var(--fg-soft);
+  font-family: var(--font-body);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.kbd-trigger:hover { color: var(--fg); border-color: var(--border-strong); }
+.kbd-trigger svg { width: 14px; height: 14px; }
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--muted);
+}
+
+/* Reading progress */
+.progress {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.1s linear;
+}
+
+/* ------------------------------------------------------------------
+   Layout
+------------------------------------------------------------------ */
+.page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  display: grid;
+  grid-template-columns: var(--rail-w) 1fr;
+  gap: var(--rail-gap);
+  position: relative;
+}
+
+.rail {
+  position: sticky;
+  top: 76px;
+  align-self: start;
+  padding: 56px 0 80px;
+  max-height: calc(100vh - 76px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+  font-size: 13px;
+}
+.rail::-webkit-scrollbar { width: 6px; }
+.rail::-webkit-scrollbar-track { background: transparent; }
+.rail::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 99px;
+  transition: background 0.2s;
+}
+.rail:hover::-webkit-scrollbar-thumb { background: var(--border); }
+.rail::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }
+
+.rail-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.toc { list-style: none; padding: 0; margin: 0 0 32px; }
+.toc li { position: relative; }
+.toc a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 0 5px 16px;
+  border: none;
+  color: var(--muted);
+  font-size: 13.5px;
+  position: relative;
+  transition: color 0.15s, padding 0.15s;
+}
+.toc a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 1px;
+  background: var(--border-strong);
+  transition: width 0.2s, background 0.2s;
+}
+.toc a:hover { color: var(--fg); }
+.toc a.active {
+  color: var(--fg);
+  font-weight: 500;
+  padding-left: 22px;
+}
+.toc a.active::before {
+  width: 14px;
+  background: var(--accent);
+  height: 2px;
+}
+.toc-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  min-width: 18px;
+}
+
+.rail-meta {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.rail-meta div { display: flex; justify-content: space-between; padding: 2px 0; }
+.rail-meta span { color: var(--fg-soft); font-family: var(--font-mono); font-size: 11.5px; }
+
+/* Rail CTA card */
+.rail-cta {
+  margin-top: 24px;
+  padding: 16px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.rail-cta-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.rail-cta-label::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: oklch(0.65 0.18 145);
+  box-shadow: 0 0 0 2px color-mix(in oklch, oklch(0.65 0.18 145) 30%, transparent);
+}
+.rail-cta-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  line-height: 1.3;
+  color: var(--fg);
+  margin: 0 0 12px;
+}
+.rail-cta a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--fg-soft);
+  margin-bottom: 6px;
+  transition: all 0.15s;
+}
+.rail-cta a:last-child { margin-bottom: 0; }
+.rail-cta a:hover { color: var(--fg); border-color: var(--accent); }
+.rail-cta a .arrow { color: var(--muted); transition: transform 0.15s; }
+.rail-cta a:hover .arrow { color: var(--accent); transform: translateX(2px); }
+
+.main {
+  padding: 0 0 160px;
+  min-width: 0;
+}
+
+.content {
+  max-width: var(--reading-w);
+}
+
+/* ------------------------------------------------------------------
+   Hero
+------------------------------------------------------------------ */
+.hero {
+  padding: 56px 0 48px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 64px;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
+.hero-meta span.dot::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+}
+.hero-portrait {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+  margin-right: 8px;
+  filter: sepia(0.12) saturate(1.05) contrast(1.02);
+  transition: filter 0.2s, border-color 0.2s;
+}
+.hero-portrait-link {
+  display: inline-flex;
+  border: none;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.2s;
+}
+.hero-portrait-link::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in oklch, var(--accent) 22%, transparent) 0%, transparent 70%);
+  z-index: -1;
+  opacity: 0.7;
+  transition: opacity 0.2s, inset 0.2s;
+}
+.hero-portrait-link:hover { transform: scale(1.04); }
+.hero-portrait-link:hover::before { opacity: 1; inset: -10px; }
+.hero-portrait-link:hover .hero-portrait { border-color: var(--accent); filter: sepia(0.05) saturate(1.1); }
+
+.hero-name {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(56px, 9vw, 104px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+  color: var(--fg);
+}
+.hero-name em {
+  font-style: italic;
+  display: inline-block;
+  color: var(--accent);
+  font-size: 1em;
+}
+.hero-title {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--fg-soft);
+  margin: 0 0 28px;
+  text-transform: uppercase;
+}
+.hero-title .sep { color: var(--muted); margin: 0 8px; }
+
+.hero-lede {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(22px, 2.6vw, 28px);
+  line-height: 1.4;
+  color: var(--fg-soft);
+  margin: 0 0 32px;
+  max-width: 640px;
+}
+.hero-lede em { color: var(--fg); font-style: italic; }
+
+/* CTA bar */
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+  line-height: 1;
+}
+.btn svg { width: 15px; height: 15px; }
+.btn-primary {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+}
+.btn-primary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-fg);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+.btn-secondary {
+  background: var(--bg-elev);
+  color: var(--fg);
+  border-color: var(--border);
+}
+.btn-secondary:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-deep);
+}
+.btn .kbd-mini {
+  margin-left: 4px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: color-mix(in oklch, var(--bg) 50%, transparent);
+  border: 1px solid color-mix(in oklch, var(--bg) 60%, transparent);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 400;
+  opacity: 0.7;
+}
+.btn-secondary .kbd-mini {
+  background: var(--bg);
+  border-color: var(--border);
+  color: var(--muted);
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  padding: 28px 0 0;
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 44px);
+  line-height: 1;
+  color: var(--fg);
+  margin-bottom: 4px;
+}
+.stat-num .unit { font-family: var(--font-mono); font-size: 0.4em; color: var(--muted); margin-left: 2px; vertical-align: 0.4em; }
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+}
+
+/* ------------------------------------------------------------------
+   Sections
+------------------------------------------------------------------ */
+.section { margin-top: 96px; scroll-margin-top: 80px; }
+.section:first-of-type { margin-top: 0; }
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.section-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(28px, 3.4vw, 38px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--fg);
+}
+.section-title em { color: var(--accent); }
+.section-tag {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.prose p { margin: 0 0 1em; }
+.prose p:last-child { margin-bottom: 0; }
+.prose .lede {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--fg);
+}
+.prose .lede::first-line { letter-spacing: 0.01em; }
+
+/* ------------------------------------------------------------------
+   Impact metrics
+------------------------------------------------------------------ */
+.impact {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+.impact-card {
+  padding: 28px 4px 24px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.impact-card:nth-child(odd) { border-right: 1px solid var(--border); padding-right: 28px; }
+.impact-card:nth-child(even) { padding-left: 28px; }
+.impact-card:nth-last-child(-n+2) { border-bottom: none; }
+
+.impact-num {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 72px);
+  line-height: 1;
+  margin-bottom: 10px;
+  color: var(--fg);
+}
+.impact-num .unit {
+  font-family: var(--font-mono);
+  font-size: 0.32em;
+  color: var(--accent);
+  font-weight: 500;
+  margin-left: 4px;
+  vertical-align: 0.55em;
+}
+.impact-label {
+  font-size: 15px;
+  color: var(--fg-soft);
+  margin-bottom: 4px;
+}
+.impact-context {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ------------------------------------------------------------------
+   Experience — timeline + expandable
+------------------------------------------------------------------ */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 16px;
+  bottom: 16px;
+  width: 1px;
+  background: var(--border);
+}
+
+.role {
+  position: relative;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+.role:last-child { border-bottom: none; }
+.role::before {
+  content: "";
+  position: absolute;
+  left: -32px;
+  top: 32px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1.5px solid var(--border-strong);
+  transition: all 0.2s;
+}
+.role.current::before {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in oklch, var(--accent) 18%, transparent);
+}
+
+.role-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: baseline;
+  cursor: pointer;
+  user-select: none;
+}
+.role-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 4px;
+  color: var(--fg);
+}
+.role-company {
+  font-size: 14px;
+  color: var(--fg-soft);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.role-company strong { color: var(--fg); font-weight: 500; }
+.role-period {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  text-align: right;
+}
+.role-period .duration { display: block; font-size: 10.5px; opacity: 0.8; margin-top: 2px; }
+
+.role-summary {
+  margin-top: 14px;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--fg-soft);
+}
+.role-summary .hl {
+  background: linear-gradient(transparent 60%, var(--highlight) 60%);
+  padding: 0 2px;
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.role-toggle {
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--fg-soft);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.role-toggle:hover { background: var(--bg-elev); color: var(--fg); border-color: var(--border-strong); }
+.role-toggle svg { width: 11px; height: 11px; transition: transform 0.2s; }
+.role[data-open="true"] .role-toggle svg { transform: rotate(180deg); }
+
+.role-body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+.role[data-open="true"] .role-body {
+  max-height: 2200px;
+  opacity: 1;
+  margin-top: 20px;
+}
+
+.role-body h4 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin: 18px 0 8px;
+  font-weight: 500;
+}
+.role-body h4:first-child { margin-top: 0; }
+
+.role-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+.role-body li {
+  position: relative;
+  padding: 6px 0 6px 20px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--fg-soft);
+}
+.role-body li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 8px;
+  height: 1px;
+  background: var(--border-strong);
+}
+.role-body li strong { color: var(--fg); }
+
+/* ------------------------------------------------------------------
+   Projects
+------------------------------------------------------------------ */
+.projects {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+.project {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 32px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+}
+.project:last-child { border-bottom: none; }
+
+.project-index {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-top: 8px;
+}
+.project-index .big {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 36px;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  line-height: 1.25;
+  margin: 0 0 6px;
+  color: var(--fg);
+}
+.project-org {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+.project-impact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.impact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 99px;
+  background: var(--accent-soft);
+  color: oklch(0.38 0.1 40);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+}
+html[data-theme="dark"] .impact-chip { color: oklch(0.92 0.05 45); }
+
+.project-desc {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--fg-soft);
+  margin: 0 0 14px;
+}
+
+.project-stack {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--muted);
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+}
+.project-stack strong { color: var(--fg-soft); font-weight: 500; margin-right: 6px; }
+.project-stack .tech {
+  display: inline-block;
+  margin-right: 6px;
+}
+.project-stack .tech::after { content: " ·"; color: var(--border-strong); margin-left: 6px; }
+.project-stack .tech:last-child::after { display: none; }
+
+.project-links {
+  margin-top: 12px;
+  display: flex;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+}
+.project-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--accent);
+  border-bottom: 1px solid color-mix(in oklch, var(--accent) 30%, transparent);
+}
+
+/* ------------------------------------------------------------------
+   Skills filter
+------------------------------------------------------------------ */
+.skill-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 28px;
+  padding: 14px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.filter-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  align-self: center;
+  margin-right: 8px;
+}
+.filter-chip {
+  padding: 5px 12px;
+  border-radius: 99px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--fg-soft);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.filter-chip:hover { color: var(--fg); border-color: var(--border-strong); }
+.filter-chip[aria-pressed="true"] {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+.skill-group {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 32px;
+  align-items: start;
+  transition: opacity 0.2s;
+}
+.skill-group:last-child { border-bottom: none; }
+.skill-group.dimmed { opacity: 0.25; }
+
+.skill-cat {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--fg);
+  margin: 0;
+}
+.skill-cat-count {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+  letter-spacing: 0.06em;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.skill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 13.5px;
+  color: var(--fg);
+  transition: all 0.15s;
+}
+.skill:hover { border-color: var(--border-strong); }
+.skill .lvl {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.skill.expert { background: var(--bg-elev); }
+.skill.expert::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ------------------------------------------------------------------
+   Certs / Education
+------------------------------------------------------------------ */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+.cert {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.cert:nth-child(odd) { padding-right: 24px; border-right: 1px solid var(--border); }
+.cert:nth-child(even) { padding-left: 24px; }
+
+.cert-name {
+  font-family: var(--font-display);
+  font-size: 19px;
+  line-height: 1.25;
+  margin: 0 0 6px;
+  color: var(--fg);
+}
+.cert-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.cert-score {
+  background: var(--accent-soft);
+  color: oklch(0.38 0.1 40);
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-weight: 500;
+}
+html[data-theme="dark"] .cert-score { color: oklch(0.92 0.05 45); }
+
+.education {
+  margin-top: 32px;
+  padding: 24px;
+  background: var(--bg-elev);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+.education h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  margin: 0 0 6px;
+  color: var(--fg);
+  font-weight: 400;
+}
+.education .school {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ------------------------------------------------------------------
+   Publication / hobbies
+------------------------------------------------------------------ */
+.pub {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+.pub:last-child { border-bottom: none; }
+.pub-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.3;
+  margin: 0 0 8px;
+  color: var(--fg);
+}
+.pub-meta {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+.pub-desc {
+  font-size: 15px;
+  color: var(--fg-soft);
+  margin: 0 0 10px;
+}
+.pub-link {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+  border-bottom: 1px solid color-mix(in oklch, var(--accent) 30%, transparent);
+}
+
+.hobbies {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.hobby {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-elev);
+}
+.hobby h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  margin: 0 0 8px;
+  color: var(--fg);
+  font-weight: 400;
+}
+.hobby p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--fg-soft);
+  margin: 0;
+}
+.hobby-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+/* ------------------------------------------------------------------
+   Awards
+------------------------------------------------------------------ */
+.awards { list-style: none; padding: 0; margin: 0; }
+.awards li {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+}
+.awards li:last-child { border-bottom: none; }
+.awards-year {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.awards-name { color: var(--fg); font-size: 15px; }
+.awards-name strong { font-family: var(--font-display); font-size: 18px; font-weight: 400; }
+.awards-org {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ------------------------------------------------------------------
+   Contact
+------------------------------------------------------------------ */
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+.contact-row {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+}
+.contact-row:nth-child(odd) { padding-right: 28px; border-right: 1px solid var(--border); }
+.contact-row:nth-child(even) { padding-left: 28px; }
+.contact-row:nth-last-child(-n+2) { border-bottom: none; }
+.contact-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+.contact-value {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--fg);
+}
+.contact-value a { border-bottom-color: var(--border-strong); }
+.contact-value a:hover { border-bottom-color: var(--accent); }
+
+/* ------------------------------------------------------------------
+   Footer
+------------------------------------------------------------------ */
+.footer {
+  margin-top: 120px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.footer a { color: var(--muted); border: none; }
+.footer a:hover { color: var(--accent); }
+.footer-links { display: flex; gap: 18px; }
+
+/* ------------------------------------------------------------------
+   Command Palette
+------------------------------------------------------------------ */
+.cp-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: color-mix(in oklch, var(--bg-deep) 60%, transparent);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 14vh;
+}
+.cp-backdrop.open { display: flex; animation: fadeIn 0.15s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.cp {
+  width: 100%;
+  max-width: 540px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: slideUp 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@keyframes slideUp { from { transform: translateY(12px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.cp-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+}
+.cp-input-wrap svg { width: 16px; height: 16px; color: var(--muted); flex-shrink: 0; }
+.cp-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--fg);
+  outline: none;
+  font-weight: 400;
+}
+.cp-input::placeholder { color: var(--muted); }
+.cp-list {
+  max-height: 380px;
+  overflow-y: auto;
+  padding: 6px;
+}
+.cp-group-label {
+  padding: 10px 12px 4px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.cp-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--fg);
+  border: none;
+}
+.cp-item:hover { background: var(--bg-elev); color: var(--fg); }
+.cp-item.active { background: var(--accent-soft); color: oklch(0.3 0.1 40); }
+html[data-theme="dark"] .cp-item.active { color: oklch(0.95 0.05 45); }
+.cp-item-icon {
+  width: 24px; height: 24px;
+  display: grid; place-items: center;
+  border-radius: 6px;
+  background: var(--bg-elev);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.cp-item.active .cp-item-icon { background: var(--bg); }
+.cp-item-text { flex: 1; }
+.cp-item-sub {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+.cp-item.active .cp-item-sub { color: oklch(0.4 0.08 40); }
+html[data-theme="dark"] .cp-item.active .cp-item-sub { color: oklch(0.85 0.04 45); }
+.cp-footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--muted);
+}
+.cp-footer span { display: inline-flex; align-items: center; gap: 4px; }
+.cp-footer .kbd {
+  padding: 1px 4px;
+  font-size: 9.5px;
+}
+
+/* ------------------------------------------------------------------
+   Tweaks Panel
+------------------------------------------------------------------ */
+.tweaks-panel {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 280px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 16px;
+  z-index: 60;
+  display: none;
+}
+.tweaks-panel.open { display: block; animation: slideUp 0.2s ease; }
+.tweaks-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.tweaks-head h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  margin: 0;
+  font-weight: 400;
+  color: var(--fg);
+}
+.tweaks-close { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; padding: 4px; }
+.tweak { margin-bottom: 14px; }
+.tweak:last-child { margin-bottom: 0; }
+.tweak-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+.tweak-row { display: flex; gap: 4px; }
+.tweak-row button {
+  flex: 1;
+  padding: 8px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--fg-soft);
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.tweak-row button:hover { background: var(--bg-elev); }
+.tweak-row button[aria-pressed="true"] {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+}
+.tweak-swatches { display: flex; gap: 6px; }
+.swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s;
+}
+.swatch:hover { transform: scale(1.1); }
+.swatch[aria-pressed="true"] { border-color: var(--fg); transform: scale(1.1); }
+
+/* ------------------------------------------------------------------
+   Responsive
+------------------------------------------------------------------ */
+@media (max-width: 920px) {
+  .page { grid-template-columns: 1fr; gap: 0; }
+  .rail { display: none; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .impact { grid-template-columns: 1fr; }
+  .impact-card:nth-child(odd) { border-right: none; padding-right: 4px; }
+  .impact-card:nth-child(even) { padding-left: 4px; }
+  .impact-card:nth-last-child(2) { border-bottom: 1px solid var(--border); }
+  .cert-grid { grid-template-columns: 1fr; }
+  .cert:nth-child(odd) { border-right: none; padding-right: 0; }
+  .cert:nth-child(even) { padding-left: 0; }
+  .contact { grid-template-columns: 1fr; }
+  .contact-row:nth-child(odd) { border-right: none; padding-right: 0; }
+  .contact-row:nth-child(even) { padding-left: 0; }
+  .skill-group { grid-template-columns: 1fr; gap: 12px; }
+  .project { grid-template-columns: 1fr; gap: 12px; }
+  .project-index .big { font-size: 24px; display: inline; margin-right: 8px; }
+  .hobbies { grid-template-columns: 1fr; }
+  .role-head { grid-template-columns: 1fr; gap: 4px; }
+  .role-period { text-align: left; }
+  .awards li { grid-template-columns: 1fr; gap: 4px; }
+  .footer { flex-direction: column; gap: 12px; }
+}
+@media (max-width: 560px) {
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .hero-name { font-size: clamp(44px, 12vw, 64px); }
+  .brand-role { display: none; }
+  .brand-slash { display: none; }
+  .brand-name { max-width: 160px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .status { display: none; }
+  .crumb { display: none; }
+  .topbar-inner { gap: 12px; padding: 12px 16px; }
+}
+
+/* ------------------------------------------------------------------
+   Print
+------------------------------------------------------------------ */
+@media print {
+  :root {
+    --bg: white;
+    --bg-elev: white;
+    --fg: #111;
+    --fg-soft: #333;
+    --muted: #666;
+    --border: #ddd;
+    --accent: #b25a3a;
+  }
+  .topbar, .rail, .tweaks-panel, .cp-backdrop, .footer-actions, .role-toggle, .skill-filter { display: none !important; }
+  .page { display: block; padding: 0 24px; max-width: 100%; }
+  .main { padding: 0; }
+  .content { max-width: 100%; }
+  .role-body { max-height: none !important; opacity: 1 !important; margin-top: 16px !important; }
+  .section { margin-top: 32px; page-break-inside: avoid; }
+  .role, .project { page-break-inside: avoid; }
+  body { font-size: 11pt; }
+  a { color: var(--fg); border: none; }
+  .hero-name { font-size: 48px; }
+  .section-title { font-size: 24px; }
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="profile-section">
-                <img src="vicknesh.png" alt="Vicknesh Rethinavelu" class="profile-img">
-                <div class="profile-info">
-                    <h1>Vicknesh Rethinavelu</h1>
-                    <p class="title">Cloud Operations Engineer | Platform Engineering Specialist</p>
-                    <p class="tagline">9+ Years Experience | CKA 91% | Multi-Cloud Expert</p>
 
-                    <div class="contact-links">
-                        <a href="https://www.linkedin.com/in/vicknesh22/" target="_blank">LinkedIn</a> |
-                        <a href="https://github.com/vicknesh22" target="_blank">GitHub</a> |
-                        <a href="contactme.html">Contact</a> |
-                        <a href="resume.html">Resume</a>
-                    </div>
-                </div>
-            </div>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">VR</span>
+      <span class="brand-name">Vicknesh Rethinavelu</span>
+      <span class="brand-slash">/</span>
+      <span class="brand-role">Cloud Platform Engineer</span>
+    </a>
+    <span class="status">
+      <span class="status-dot"></span>
+      Currently @ MongoDB
+    </span>
+    <a href="#top" class="crumb" id="crumb" aria-label="Current section">
+      <span class="crumb-mark">§</span>
+      <span class="crumb-num" id="crumb-num">01</span>
+      <span class="crumb-sep">·</span>
+      <span class="crumb-name" id="crumb-name">About</span>
+    </a>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <button class="icon-btn" id="tweaks-toggle" aria-label="Open settings" title="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h10M3 12h6M3 18h12M15 4l4 4M19 4l-4 4M11 14l4 4M15 14l-4 4M17 16l4 4M21 16l-4 4"/><circle cx="17" cy="6" r="2"/><circle cx="13" cy="12" r="2"/><circle cx="19" cy="18" r="2"/></svg>
+      </button>
+      <button class="icon-btn" onclick="window.print()" aria-label="Print" title="Print">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<div class="page" id="top">
+
+  <!-- ============ Rail / TOC ============ -->
+  <aside class="rail">
+    <div class="rail-label">Contents</div>
+    <ol class="toc" id="toc">
+      <li><a href="#about"><span class="toc-num">01</span>About</a></li>
+      <li><a href="#impact"><span class="toc-num">02</span>Impact</a></li>
+      <li><a href="#experience"><span class="toc-num">03</span>Experience</a></li>
+      <li><a href="#projects"><span class="toc-num">04</span>Projects</a></li>
+      <li><a href="#skills"><span class="toc-num">05</span>Skills</a></li>
+      <li><a href="#certs"><span class="toc-num">06</span>Credentials</a></li>
+      <li><a href="#publications"><span class="toc-num">07</span>Publications</a></li>
+      <li><a href="#awards"><span class="toc-num">08</span>Awards</a></li>
+      <li><a href="#beyond"><span class="toc-num">09</span>Beyond Work</a></li>
+      <li><a href="#contact"><span class="toc-num">10</span>Contact</a></li>
+    </ol>
+    <div class="rail-meta">
+      <div>Reading time<span id="read-time">~12 min</span></div>
+      <div>Last updated<span>May 2026</span></div>
+      <div>Version<span>v2.0</span></div>
+    </div>
+    <div class="rail-cta">
+      <div class="rail-cta-label">Available</div>
+      <p class="rail-cta-title">Open to senior platform &amp; SRE leadership roles.</p>
+      <a href="resume.html?print=1" target="_blank" rel="noopener">
+        <span>Download résumé</span>
+        <span class="arrow">↓</span>
+      </a>
+      <a href="mailto:vicknesh22@gmail.com">
+        <span>Email Vicknesh</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ============ Main ============ -->
+  <main class="main">
+    <div class="content">
+
+      <!-- ============ Hero ============ -->
+      <section class="hero">
+        <div class="hero-meta">
+          <a href="https://www.linkedin.com/in/vicknesh22/" target="_blank" rel="noopener" class="hero-portrait-link" aria-label="Vicknesh Rethinavelu on LinkedIn" title="View LinkedIn profile">
+            <img src="vicknesh.png" alt="Vicknesh Rethinavelu" class="hero-portrait" loading="eager">
+          </a>
+          <span>Bengaluru, India</span>
+          <span class="dot">9+ years</span>
+          <span class="dot">Open to roles</span>
+        </div>
+        <h1 class="hero-name">V<em>icknesh</em><br>R<em>ethinavelu</em></h1>
+        <p class="hero-title">Cloud Operations Engineer <span class="sep">·</span> Platform Engineering Specialist</p>
+        <p class="hero-lede">
+          Senior Cloud Platform Engineer building <em>self-healing infrastructure</em> at MongoDB.
+          Previously led a team of 5 at NoBroker — saving <em>₹10L+ annually</em> on
+          logging infra and shipping a self-service staging platform for <em>100+ developers</em>.
+        </p>
+        <div class="hero-cta">
+          <a href="resume.html?print=1" class="btn btn-primary" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download résumé
+            <span class="kbd-mini">PDF</span>
+          </a>
+          <a href="mailto:vicknesh22@gmail.com" class="btn btn-secondary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            Get in touch
+          </a>
+          <a href="https://www.linkedin.com/in/vicknesh22/" target="_blank" rel="noopener" class="btn btn-secondary">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-num">9<span class="unit">yrs</span></div>
+            <div class="stat-label">Cloud<br>experience</div>
+          </div>
+          <div>
+            <div class="stat-num">91<span class="unit">%</span></div>
+            <div class="stat-label">CKA score<br>top 9th pct</div>
+          </div>
+          <div>
+            <div class="stat-num">3</div>
+            <div class="stat-label">Major clouds<br>AWS · GCP · Azure</div>
+          </div>
+          <div>
+            <div class="stat-num">5<span class="unit">DevOps</span></div>
+            <div class="stat-label">Team led<br>2 years</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ About ============ -->
+      <section class="section" id="about">
+        <header class="section-head">
+          <span class="section-num">01</span>
+          <h2 class="section-title">About</h2>
+          <span class="section-tag">summary</span>
+        </header>
+        <div class="prose">
+          <p class="lede">
+            Nine years deep in cloud platforms, container orchestration, and the quiet engineering
+            of <em>systems that need less attention over time</em> — through automation,
+            observability, and self-service.
+          </p>
+          <p>
+            I spend my days designing systems that take operational toil and convert it into
+            Go code, RabbitMQ queues, and Temporal workflows. The work I'm proudest of looks
+            small from the outside: a logging pipeline that's <strong>10×</strong> cheaper,
+            a staging environment that spins up in <strong>under five minutes</strong>,
+            a Go service that quietly closes <strong>38%</strong> of incident tickets before
+            a human reads them.
+          </p>
+          <p>
+            I'm CKA-certified at <strong>91% (top 9th percentile)</strong>, AWS/GCP certified,
+            and have led a team of five through a PCI DSS audit. I write about what I build —
+            two technical articles on Medium have reached over a thousand engineers.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ Impact ============ -->
+      <section class="section" id="impact">
+        <header class="section-head">
+          <span class="section-num">02</span>
+          <h2 class="section-title">Measurable impact</h2>
+          <span class="section-tag">numbers worth keeping</span>
+        </header>
+        <div class="impact">
+          <div class="impact-card">
+            <div class="impact-num">38<span class="unit">%</span></div>
+            <div class="impact-label">Manual ops work eliminated</div>
+            <div class="impact-context">MongoDB · Go automation</div>
+          </div>
+          <div class="impact-card">
+            <div class="impact-num">₹10L<span class="unit">/year</span></div>
+            <div class="impact-label">Infrastructure cost saved</div>
+            <div class="impact-context">NoBroker · ClickHouse migration</div>
+          </div>
+          <div class="impact-card">
+            <div class="impact-num">10<span class="unit">:1</span></div>
+            <div class="impact-label">Log compression achieved</div>
+            <div class="impact-context">LZ4HC · 5K+ logs/sec</div>
+          </div>
+          <div class="impact-card">
+            <div class="impact-num">100<span class="unit">+</span></div>
+            <div class="impact-label">Developers unblocked</div>
+            <div class="impact-context">Project Blackbox · staging-as-a-service</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Experience ============ -->
+      <section class="section" id="experience">
+        <header class="section-head">
+          <span class="section-num">03</span>
+          <h2 class="section-title">Experience</h2>
+          <span class="section-tag">
+            <button class="filter-chip" id="expand-all" style="font-size:10.5px;padding:3px 8px;">Expand all</button>
+          </span>
         </header>
 
-        <section class="section">
-            <h2>Professional Summary</h2>
-            <p>Senior Cloud Platform Engineer with 9+ years of experience specializing in cloud infrastructure, container orchestration, and platform engineering. <strong>Led a team of 5 DevOps engineers for 2 years</strong>, driving platform initiatives and mentoring engineers. Proven track record of optimizing infrastructure costs (₹10L+ annual savings) while improving performance (10X compression ratios, 5K+ logs/sec throughput). Expert in Kubernetes (CKA/CKAD certified - 91% score), multi-cloud environments (AWS, GCP, Azure), and building self-service developer platforms. Led critical infrastructure migrations and automation projects reducing manual work by 38%. Published technical thought leadership on Medium.</p>
-        </section>
+        <div class="timeline">
 
-        <section class="section">
-            <h2>Key Achievements</h2>
-            <div class="achievements-grid">
-                <div class="achievement-card">
-                    <h3>38%</h3>
-                    <p>Manual Work Reduced</p>
-                    <small>MongoDB Automation Platform</small>
-                </div>
-                <div class="achievement-card">
-                    <h3>₹10L+</h3>
-                    <p>Annual Cost Savings</p>
-                    <small>ClickHouse Migration</small>
-                </div>
-                <div class="achievement-card">
-                    <h3>PCI DSS</h3>
-                    <p>Compliance Lead</p>
-                    <small>NBPay Payments Security</small>
-                </div>
-                <div class="achievement-card">
-                    <h3>100+</h3>
-                    <p>Developers Enabled</p>
-                    <small>Project Blackbox Platform</small>
-                </div>
-                <div class="achievement-card">
-                    <h3>91%</h3>
-                    <p>CKA Score</p>
-                    <small>Top 9th Percentile</small>
-                </div>
+          <article class="role current" data-open="true">
+            <div class="role-head" onclick="toggleRole(this.parentElement)">
+              <div>
+                <h3 class="role-title">Cloud Operations Engineer</h3>
+                <div class="role-company"><strong>MongoDB</strong> · Atlas platform</div>
+              </div>
+              <div class="role-period">Dec 2023 — Present<span class="duration">2 years</span></div>
             </div>
-        </section>
-
-        <section class="section">
-            <h2>Work Experience</h2>
-
-            <div class="job">
-                <h3>Cloud Operations Engineer</h3>
-                <p class="company">MongoDB | Dec 2023 - Present (2 years)</p>
-                <p class="job-description"><strong>Platform Engineering Projects:</strong></p>
-                <ul>
-                    <li><strong>Automated Infrastructure Issue Resolution:</strong> Built a Golang service reducing 38% manual work by categorizing issues, comparing cluster goal vs current state, and auto-applying playbook fixes. Stack: Go, RabbitMQ, MongoDB, Jira APIs, Kubernetes, Prometheus, Grafana, Splunk</li>
-                    <li><strong>Gateway Service Migration:</strong> Eliminated RabbitMQ dependency by building a single gateway endpoint with MongoDB Changestreams and Temporal framework, reducing race conditions and alert processing time. Implemented idempotent workflows</li>
-                    <li><strong>Proactive Cloud Outage Detection:</strong> Engineered multi-source correlation system using sliding window algorithm with 1-hour lookback for confidence scoring. Auto-creates incidents from Prometheus alerts, correlating cluster signals and cloud provider health dashboards</li>
-                </ul>
-                <p class="job-description"><strong>Atlas Infrastructure Operations:</strong></p>
-                <ul>
-                    <li>Handle Atlas infrastructure issues from Go planner automations across AWS, GCP, and Azure</li>
-                    <li>Coordinate with cloud providers for RCA and analysis, resolve integration issues proactively</li>
-                    <li>Perform operational actions (MongoDB resync, cluster maintenance), prevent customer impact through proactive alerts</li>
-                </ul>
+            <p class="role-summary">
+              Building Go services that <span class="hl">categorize, correlate, and auto-resolve</span>
+              Atlas infrastructure issues across AWS, GCP, and Azure — turning 3 years of repetitive
+              playbook work into deterministic automation.
+            </p>
+            <button class="role-toggle" onclick="event.stopPropagation();toggleRole(this.closest('.role'))">
+              <span class="toggle-label">Show details</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="role-body">
+              <h4>Platform engineering</h4>
+              <ul>
+                <li><strong>Automated infrastructure issue resolution.</strong> Built a Go service that categorizes incoming Jira tickets, compares cluster goal-state vs. current state, and auto-applies playbook fixes — eliminating 38% of manual ops work. Stack: Go, RabbitMQ, MongoDB, Jira APIs, Kubernetes, Prometheus, Grafana, Splunk.</li>
+                <li><strong>Gateway service migration.</strong> Removed RabbitMQ from the alerting hot-path by building a single gateway backed by MongoDB Changestreams and the Temporal framework. Idempotent child workflows eliminated race conditions and cut alert processing time.</li>
+                <li><strong>Proactive cloud outage detection.</strong> Engineered a multi-source correlation system with a sliding-window algorithm (1-hour lookback) that produces confidence scores from Prometheus alerts and cloud-provider health dashboards, then auto-creates tracking incidents.</li>
+              </ul>
+              <h4>Atlas operations</h4>
+              <ul>
+                <li>Resolve Atlas infrastructure incidents surfaced by Go-planner automations across AWS, GCP, and Azure.</li>
+                <li>Coordinate with cloud-provider TAMs for RCA on integration failures.</li>
+                <li>Perform operational actions (resync, cluster maintenance) and prevent customer impact through proactive alerting.</li>
+              </ul>
             </div>
+          </article>
 
-            <div class="job">
-                <h3>Senior DevOps Engineer</h3>
-                <p class="company">NoBroker.com | Aug 2021 - Dec 2023 (2 years 5 months)</p>
-                <p class="job-description"><strong>Team Leadership:</strong></p>
-                <ul>
-                    <li><strong>Led a team of 5 DevOps engineers</strong> over 2 years, driving platform initiatives, conducting code reviews, and mentoring junior engineers on Kubernetes, CI/CD, and cloud best practices</li>
-                    <li>Established team processes for incident response, on-call rotations, and infrastructure-as-code reviews</li>
-                </ul>
-                <p class="job-description"><strong>Security & Compliance:</strong></p>
-                <ul>
-                    <li><strong>PCI DSS Certification Lead:</strong> Spearheaded PCI DSS compliance for NBPay payments system - hardened servers, implemented cloud security controls, network segmentation, and audit logging to meet payment card industry standards</li>
-                    <li>Implemented security best practices including vulnerability scanning, access controls, and encryption at rest/transit</li>
-                </ul>
-                <p class="job-description"><strong>Technical Achievements:</strong></p>
-                <ul>
-                    <li><strong>ClickHouse Logging Migration:</strong> Led Elasticsearch to ClickHouse migration achieving ₹10L+ annual savings, 10:1 compression ratio, 5,000+ logs/sec throughput. Implemented LZ4HC compression with TTL expressions. Published technical article on Medium</li>
-                    <li>Awarded <strong>Star Performer</strong> for cost optimization and performance improvements</li>
-                    <li>Promoted to Senior DevOps Engineer, recognizing technical leadership and project delivery</li>
-                </ul>
+          <article class="role">
+            <div class="role-head" onclick="toggleRole(this.parentElement)">
+              <div>
+                <h3 class="role-title">Senior DevOps Engineer</h3>
+                <div class="role-company"><strong>NoBroker.com</strong> · led team of 5</div>
+              </div>
+              <div class="role-period">Aug 2021 — Dec 2023<span class="duration">2 yrs 5 mo</span></div>
             </div>
-
-            <div class="job">
-                <h3>DevOps Engineer</h3>
-                <p class="company">NoBroker.com | Jun 2020 - Jul 2021 (1 year 2 months)</p>
-                <p class="job-description"><strong>Service Mesh Implementation:</strong></p>
-                <ul>
-                    <li><strong>Linkerd Service Mesh:</strong> Implemented Linkerd as sidecar proxy across microservices architecture to solve inter-service communication challenges between NoBroker and NoBroker Search services</li>
-                    <li>Enabled traffic monitoring, load balancing, and rate limiting to eliminate race conditions and improve service reliability</li>
-                    <li>Gained observability into request flows, latency metrics, and service dependencies across the distributed system</li>
-                </ul>
-                <p class="job-description"><strong>NoBrokerHood - Society Management Platform:</strong></p>
-                <ul>
-                    <li>Architected initial Kubernetes infrastructure for NoBrokerHood society management application</li>
-                    <li>Built automation scripts and nginx configurations for application scaling and performance optimization</li>
-                    <li>Designed scalable environments enabling platform growth during the first year of operations</li>
-                </ul>
-                <p class="job-description"><strong>Project Blackbox - Self-Service Staging Platform:</strong></p>
-                <ul>
-                    <li>Built self-service staging platform using Docker Swarm, eliminating bottlenecks for 100+ developers</li>
-                    <li>Implemented Jenkins multi-branch pipelines (Groovy 47.5%) with Perl automation scripts (27.1%)</li>
-                    <li>Deployed Swarm+Prometheus+Loki monitoring stack for observability</li>
-                    <li>Automated Git-to-HTTPS pipeline with Traefik, Let's Encrypt SSL, dynamic subdomains</li>
-                    <li>Published technical article on Medium (NoBroker Engineering) - <a href="https://medium.com/nobroker-engineering/project-blackbox-our-mysterious-staging-environment-b4c005cf7ab1" target="_blank">Read Article</a></li>
-                </ul>
+            <p class="role-summary">
+              Led a <span class="hl">team of 5 DevOps engineers</span> driving platform initiatives.
+              Owned PCI DSS certification for NBPay and led the ClickHouse migration that saved
+              <span class="hl">₹10L+ annually</span>.
+            </p>
+            <button class="role-toggle" onclick="event.stopPropagation();toggleRole(this.closest('.role'))">
+              <span class="toggle-label">Show details</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="role-body">
+              <h4>Leadership</h4>
+              <ul>
+                <li>Led a team of <strong>5 DevOps engineers</strong> over 2 years, driving platform initiatives, conducting code reviews, and mentoring on Kubernetes, CI/CD, and cloud best practices.</li>
+                <li>Established team processes for incident response, on-call rotations, and infrastructure-as-code reviews.</li>
+              </ul>
+              <h4>Security &amp; compliance</h4>
+              <ul>
+                <li><strong>PCI DSS certification lead</strong> for the NBPay payments system — server hardening, cloud security controls, network segmentation, audit logging.</li>
+                <li>Standardized vulnerability scanning, access controls, and encryption at rest / in transit.</li>
+              </ul>
+              <h4>Technical wins</h4>
+              <ul>
+                <li><strong>ClickHouse migration.</strong> Replaced Elasticsearch with ClickHouse — <strong>₹10L+</strong> annual savings, <strong>10:1</strong> compression with LZ4HC + TTL expressions, <strong>5K+ logs/sec</strong> throughput. Published on Medium.</li>
+                <li>Awarded <strong>Star Performer</strong> for cost &amp; performance impact.</li>
+                <li>Promoted to Senior DevOps Engineer recognizing technical leadership.</li>
+              </ul>
             </div>
+          </article>
 
-            <div class="job">
-                <h3>DevOps Engineer</h3>
-                <p class="company">DXC Technology | Apr 2019 - Jun 2020 (1 year 3 months)</p>
-                <ul>
-                    <li>Multi-cloud infrastructure management (AWS, GCP, Azure)</li>
-                    <li>Led Terraform 0.11 to 0.12.1 migration project</li>
-                    <li>Received <strong>SPOT Award</strong> for exceptional project delivery</li>
-                </ul>
+          <article class="role">
+            <div class="role-head" onclick="toggleRole(this.parentElement)">
+              <div>
+                <h3 class="role-title">DevOps Engineer</h3>
+                <div class="role-company"><strong>NoBroker.com</strong></div>
+              </div>
+              <div class="role-period">Jun 2020 — Jul 2021<span class="duration">1 yr 2 mo</span></div>
             </div>
-
-            <div class="job">
-                <h3>Technical Lead</h3>
-                <p class="company">Cognizant Technology Solutions | Jun 2017 - Apr 2019 (1 year 11 months)</p>
-                <ul>
-                    <li>Production application server management and middleware operations</li>
-                    <li>SSL certificate migration and automation</li>
-                    <li>Awarded <strong>Client Performer</strong> for operational excellence</li>
-                </ul>
+            <p class="role-summary">
+              Implemented Linkerd service mesh across microservices, architected
+              the initial Kubernetes infra for <span class="hl">NoBrokerHood</span>,
+              and shipped <span class="hl">Project Blackbox</span> — staging-as-a-service for 100+ devs.
+            </p>
+            <button class="role-toggle" onclick="event.stopPropagation();toggleRole(this.closest('.role'))">
+              <span class="toggle-label">Show details</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="role-body">
+              <h4>Service mesh</h4>
+              <ul>
+                <li>Implemented Linkerd as sidecar proxy across microservices to solve inter-service communication between NoBroker and NoBroker Search.</li>
+                <li>Enabled traffic monitoring, load balancing, and rate limiting — eliminated race conditions and improved reliability.</li>
+                <li>Gained observability into request flows, latency, and service dependencies.</li>
+              </ul>
+              <h4>NoBrokerHood</h4>
+              <ul>
+                <li>Architected initial Kubernetes infrastructure for the society-management platform.</li>
+                <li>Built nginx automations for application scaling and performance tuning.</li>
+              </ul>
+              <h4>Project Blackbox</h4>
+              <ul>
+                <li>Self-service staging platform on Docker Swarm — eliminated bottlenecks for <strong>100+ developers</strong>.</li>
+                <li>Jenkins multi-branch pipelines (Groovy 47.5%) with Perl automation (27.1%); Swarm + Prometheus + Loki monitoring; Git-to-HTTPS automation via Traefik + Let's Encrypt with dynamic subdomains.</li>
+                <li>Published on NoBroker Engineering Medium — <a href="https://medium.com/nobroker-engineering/project-blackbox-our-mysterious-staging-environment-b4c005cf7ab1" target="_blank">read article →</a></li>
+              </ul>
             </div>
+          </article>
 
-            <div class="job">
-                <h3>Senior System Engineer</h3>
-                <p class="company">Cognizant Technology Solutions | Jun 2015 - Jun 2017 (2 years 1 month)</p>
-                <ul>
-                    <li>Application server management and middleware support</li>
-                    <li>Production environment maintenance and troubleshooting</li>
-                </ul>
+          <article class="role">
+            <div class="role-head" onclick="toggleRole(this.parentElement)">
+              <div>
+                <h3 class="role-title">DevOps Engineer</h3>
+                <div class="role-company"><strong>DXC Technology</strong></div>
+              </div>
+              <div class="role-period">Apr 2019 — Jun 2020<span class="duration">1 yr 3 mo</span></div>
             </div>
-        </section>
-
-        <section class="section">
-            <h2>Major Projects</h2>
-
-            <div class="project-card">
-                <h3>Automated Infrastructure Issue Resolution (MongoDB)</h3>
-                <p class="tech-stack"><strong>Tech Stack:</strong> Golang, RabbitMQ, MongoDB, Jira APIs, Kubernetes, Prometheus, Grafana, Splunk</p>
-                <p><strong>Impact:</strong> 38% manual work reduction replacing 3 years of repetitive processes</p>
-                <p>Built a Golang automation service with a node-based execution graph using a modular executor pattern. System fetches Jira tickets, compares the Atlas cluster goal state vs current state, automatically applies fixes from playbooks or escalates to customers.</p>
+            <p class="role-summary">
+              Multi-cloud infrastructure management across AWS, GCP, and Azure. Led the
+              Terraform 0.11 → 0.12.1 migration — <span class="hl">SPOT Award</span> for delivery.
+            </p>
+            <button class="role-toggle" onclick="event.stopPropagation();toggleRole(this.closest('.role'))">
+              <span class="toggle-label">Show details</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="role-body">
+              <ul>
+                <li>Multi-cloud infrastructure management (AWS, GCP, Azure).</li>
+                <li>Led Terraform 0.11 → 0.12.1 migration project.</li>
+                <li>Received <strong>SPOT Award</strong> for exceptional project delivery.</li>
+              </ul>
             </div>
+          </article>
 
-            <div class="project-card">
-                <h3>Gateway Service Migration (MongoDB)</h3>
-                <p class="tech-stack"><strong>Tech Stack:</strong> Golang, MongoDB Changestreams, Temporal Framework, TTL</p>
-                <p><strong>Impact:</strong> Eliminated race conditions, reduced alert processing time, simplified architecture</p>
-                <p>Eliminated RabbitMQ dependency by building a single gateway service. Used MongoDB Changestreams for event-driven processing and the Temporal framework for idempotent child workflows.</p>
+          <article class="role">
+            <div class="role-head" onclick="toggleRole(this.parentElement)">
+              <div>
+                <h3 class="role-title">Technical Lead</h3>
+                <div class="role-company"><strong>Cognizant Technology Solutions</strong></div>
+              </div>
+              <div class="role-period">Jun 2017 — Apr 2019<span class="duration">1 yr 11 mo</span></div>
             </div>
+            <p class="role-summary">
+              Production application-server management and middleware operations. SSL automation.
+              <span class="hl">Client Performer</span> Award for operational excellence.
+            </p>
+            <button class="role-toggle" onclick="event.stopPropagation();toggleRole(this.closest('.role'))">
+              <span class="toggle-label">Show details</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="role-body">
+              <ul>
+                <li>Production application server management and middleware operations.</li>
+                <li>SSL certificate migration and automation.</li>
+                <li>Awarded <strong>Client Performer</strong> for operational excellence.</li>
+              </ul>
+            </div>
+          </article>
 
-            <div class="project-card">
-                <h3>Proactive Cloud Outage Detection (MongoDB)</h3>
-                <p class="tech-stack"><strong>Tech Stack:</strong> Temporal, MongoDB, Prometheus, Sliding Window Algorithm</p>
-                <p><strong>Impact:</strong> Proactive detection with confidence scoring, auto-incident creation</p>
-                <p>Built a multi-source correlation engine using a sliding window algorithm with a 1-hour lookback. Correlates cluster signals with cloud provider health dashboards, produces confidence scores, and auto-creates tracking incidents.</p>
+          <article class="role">
+            <div class="role-head" onclick="toggleRole(this.parentElement)">
+              <div>
+                <h3 class="role-title">Senior System Engineer</h3>
+                <div class="role-company"><strong>Cognizant Technology Solutions</strong></div>
+              </div>
+              <div class="role-period">Jun 2015 — Jun 2017<span class="duration">2 yrs 1 mo</span></div>
             </div>
+            <p class="role-summary">
+              Application server management and middleware support. Production environment
+              maintenance and troubleshooting.
+            </p>
+            <button class="role-toggle" onclick="event.stopPropagation();toggleRole(this.closest('.role'))">
+              <span class="toggle-label">Show details</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="role-body">
+              <ul>
+                <li>Application server management and middleware support.</li>
+                <li>Production environment maintenance and troubleshooting.</li>
+              </ul>
+            </div>
+          </article>
 
-            <div class="project-card">
-                <h3>ClickHouse Logging Infrastructure (NoBroker)</h3>
-                <p class="tech-stack"><strong>Tech Stack:</strong> ClickHouse, Fluent Bit, Redash, Grafana, LZ4HC</p>
-                <p><strong>Impact:</strong> ₹10L+ annual savings, 10:1 compression, 5,000+ logs/sec throughput</p>
-                <p>Led Elasticsearch to ClickHouse migration. Researched ClickBench benchmarks, studied Zerodha/Cloudflare deployments, and implemented zero-downtime migration. Published an article on Medium reaching 1,000+ engineers.</p>
-                <p><a href="https://www.linkedin.com/pulse/real-time-log-analysis-cost-efficient-storage-vicknesh-rethinavelu-hfbqe/" target="_blank">Read Article on LinkedIn</a></p>
-            </div>
+        </div>
+      </section>
 
-            <div class="project-card">
-                <h3>Project Blackbox (NoBroker)</h3>
-                <p class="tech-stack"><strong>Tech Stack:</strong> Docker Swarm, Jenkins (Groovy), Perl, Traefik, Portainer, Prometheus, Loki</p>
-                <p><strong>Impact:</strong> 100+ developers enabled, <5min Git push to HTTPS deployment</p>
-                <p>Built a complete self-service staging platform. Automated workflow: Git → Jenkins → Nexus → Portainer → Swarm → Traefik with Let's Encrypt SSL and dynamic subdomains. GitHub: <a href="https://github.com/vicknesh22/blackbox-swarm" target="_blank">vicknesh22/blackbox-swarm</a></p>
-                <p><a href="https://medium.com/nobroker-engineering/project-blackbox-our-mysterious-staging-environment-b4c005cf7ab1" target="_blank">Read Article on Medium</a></p>
-            </div>
+      <!-- ============ Projects ============ -->
+      <section class="section" id="projects">
+        <header class="section-head">
+          <span class="section-num">04</span>
+          <h2 class="section-title">Selected projects</h2>
+          <span class="section-tag">case studies</span>
+        </header>
+        <div class="projects">
 
-            <div class="project-card">
-                <h3>NoBrokerHood Infrastructure (NoBroker)</h3>
-                <p class="tech-stack"><strong>Tech Stack:</strong> Kubernetes, Nginx, Automation Scripts</p>
-                <p><strong>Impact:</strong> Scalable platform enabling application growth</p>
-                <p>Architected initial Kubernetes infrastructure for society management application. Built automation scripts, nginx configurations, and scalable environments for platform expansion.</p>
+          <article class="project">
+            <div class="project-index"><span class="big">01</span>MongoDB</div>
+            <div>
+              <h3 class="project-title">Automated infrastructure issue resolution</h3>
+              <div class="project-org">Self-healing Atlas · Go automation</div>
+              <div class="project-impact">
+                <span class="impact-chip">−38% manual work</span>
+                <span class="impact-chip">3 years of toil replaced</span>
+              </div>
+              <p class="project-desc">
+                Go service with a node-based execution graph using a modular executor pattern.
+                Fetches Jira tickets, compares Atlas cluster goal-state vs. current, applies
+                playbook fixes, or escalates to customers.
+              </p>
+              <div class="project-stack">
+                <strong>STACK</strong>
+                <span class="tech">Golang</span><span class="tech">RabbitMQ</span><span class="tech">MongoDB</span><span class="tech">Jira API</span><span class="tech">Kubernetes</span><span class="tech">Prometheus</span><span class="tech">Grafana</span><span class="tech">Splunk</span>
+              </div>
             </div>
-        </section>
+          </article>
 
-        <section class="section">
-            <h2>Technical Skills</h2>
+          <article class="project">
+            <div class="project-index"><span class="big">02</span>MongoDB</div>
+            <div>
+              <h3 class="project-title">Gateway service migration</h3>
+              <div class="project-org">Architecture simplification · event-driven</div>
+              <div class="project-impact">
+                <span class="impact-chip">Race conditions eliminated</span>
+                <span class="impact-chip">Faster alert processing</span>
+              </div>
+              <p class="project-desc">
+                Removed RabbitMQ dependency by building a single gateway service.
+                MongoDB Changestreams for event-driven processing, Temporal framework
+                for idempotent child workflows.
+              </p>
+              <div class="project-stack">
+                <strong>STACK</strong>
+                <span class="tech">Golang</span><span class="tech">MongoDB Changestreams</span><span class="tech">Temporal</span><span class="tech">TTL</span>
+              </div>
+            </div>
+          </article>
 
-            <div class="skills-category">
-                <h3>Programming & Automation</h3>
-                <div class="skills-list">
-                    <span class="skill-tag expert">Golang (Advanced)</span>
-                    <span class="skill-tag expert">Python (Advanced)</span>
-                    <span class="skill-tag expert">Bash/Shell (Expert)</span>
-                    <span class="skill-tag expert">Groovy/Jenkins DSL (Advanced)</span>
-                    <span class="skill-tag expert">Perl (Advanced)</span>
-                </div>
+          <article class="project">
+            <div class="project-index"><span class="big">03</span>MongoDB</div>
+            <div>
+              <h3 class="project-title">Proactive cloud outage detection</h3>
+              <div class="project-org">Correlation engine · confidence scoring</div>
+              <div class="project-impact">
+                <span class="impact-chip">Auto-incident creation</span>
+                <span class="impact-chip">1-hour sliding window</span>
+              </div>
+              <p class="project-desc">
+                Multi-source correlation engine using a sliding-window algorithm
+                with a 1-hour lookback. Correlates cluster signals with cloud-provider
+                health dashboards, produces confidence scores, auto-creates tracking incidents.
+              </p>
+              <div class="project-stack">
+                <strong>STACK</strong>
+                <span class="tech">Temporal</span><span class="tech">MongoDB</span><span class="tech">Prometheus</span><span class="tech">Sliding Window</span>
+              </div>
             </div>
+          </article>
 
-            <div class="skills-category">
-                <h3>Container & Orchestration</h3>
-                <div class="skills-list">
-                    <span class="skill-tag expert">Kubernetes (Expert - CKA 91%)</span>
-                    <span class="skill-tag expert">Docker & Swarm (Expert)</span>
-                    <span class="skill-tag expert">Linkerd Service Mesh (Advanced)</span>
-                    <span class="skill-tag expert">Temporal Framework (Advanced)</span>
-                </div>
+          <article class="project">
+            <div class="project-index"><span class="big">04</span>NoBroker</div>
+            <div>
+              <h3 class="project-title">ClickHouse logging infrastructure</h3>
+              <div class="project-org">Cost &amp; performance overhaul · zero-downtime migration</div>
+              <div class="project-impact">
+                <span class="impact-chip">₹10L+ annual savings</span>
+                <span class="impact-chip">10:1 compression</span>
+                <span class="impact-chip">5K+ logs/sec</span>
+              </div>
+              <p class="project-desc">
+                Led Elasticsearch → ClickHouse migration. Researched ClickBench benchmarks,
+                studied Zerodha/Cloudflare deployments, executed zero-downtime cutover.
+                Published an article reaching 1,000+ engineers.
+              </p>
+              <div class="project-stack">
+                <strong>STACK</strong>
+                <span class="tech">ClickHouse</span><span class="tech">Fluent Bit</span><span class="tech">Redash</span><span class="tech">Grafana</span><span class="tech">LZ4HC</span>
+              </div>
+              <div class="project-links">
+                <a href="https://www.linkedin.com/pulse/real-time-log-analysis-cost-efficient-storage-vicknesh-rethinavelu-hfbqe/" target="_blank">Read article →</a>
+              </div>
             </div>
+          </article>
 
-            <div class="skills-category">
-                <h3>Cloud Platforms</h3>
-                <div class="skills-list">
-                    <span class="skill-tag expert">Multi-Cloud AWS/GCP/Azure (Expert)</span>
-                    <span class="skill-tag expert">Google Cloud (Expert - Certified)</span>
-                    <span class="skill-tag expert">AWS (Advanced - Certified)</span>
-                    <span class="skill-tag expert">Azure (Advanced)</span>
-                </div>
+          <article class="project">
+            <div class="project-index"><span class="big">05</span>NoBroker</div>
+            <div>
+              <h3 class="project-title">Project Blackbox</h3>
+              <div class="project-org">Staging-as-a-service · developer platform</div>
+              <div class="project-impact">
+                <span class="impact-chip">100+ developers enabled</span>
+                <span class="impact-chip">&lt;5 min Git→HTTPS</span>
+              </div>
+              <p class="project-desc">
+                Complete self-service staging platform.
+                Git → Jenkins → Nexus → Portainer → Swarm → Traefik with Let's Encrypt SSL
+                and dynamic subdomains.
+              </p>
+              <div class="project-stack">
+                <strong>STACK</strong>
+                <span class="tech">Docker Swarm</span><span class="tech">Jenkins/Groovy</span><span class="tech">Perl</span><span class="tech">Traefik</span><span class="tech">Portainer</span><span class="tech">Prometheus</span><span class="tech">Loki</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/vicknesh22/blackbox-swarm" target="_blank">GitHub →</a>
+                <a href="https://medium.com/nobroker-engineering/project-blackbox-our-mysterious-staging-environment-b4c005cf7ab1" target="_blank">Medium article →</a>
+              </div>
             </div>
+          </article>
 
-            <div class="skills-category">
-                <h3>CI/CD & Infrastructure</h3>
-                <div class="skills-list">
-                    <span class="skill-tag expert">Jenkins (Expert - 7+ years)</span>
-                    <span class="skill-tag expert">Terraform (Advanced)</span>
-                    <span class="skill-tag expert">GitOps (Expert)</span>
-                    <span class="skill-tag expert">Spinnaker (Advanced)</span>
-                </div>
+          <article class="project">
+            <div class="project-index"><span class="big">06</span>NoBroker</div>
+            <div>
+              <h3 class="project-title">NoBrokerHood infrastructure</h3>
+              <div class="project-org">Kubernetes architecture · platform scaling</div>
+              <div class="project-impact">
+                <span class="impact-chip">Scaled from launch</span>
+              </div>
+              <p class="project-desc">
+                Architected initial Kubernetes infrastructure for the society-management
+                application. Built automation scripts, nginx configurations, and scalable
+                environments for platform expansion.
+              </p>
+              <div class="project-stack">
+                <strong>STACK</strong>
+                <span class="tech">Kubernetes</span><span class="tech">Nginx</span><span class="tech">Automation</span>
+              </div>
             </div>
+          </article>
 
-            <div class="skills-category">
-                <h3>Observability & Data</h3>
-                <div class="skills-list">
-                    <span class="skill-tag expert">Prometheus & Grafana (Expert)</span>
-                    <span class="skill-tag expert">ClickHouse (Expert)</span>
-                    <span class="skill-tag expert">Splunk (Advanced)</span>
-                    <span class="skill-tag expert">Fluent Bit (Expert)</span>
-                    <span class="skill-tag expert">Loki (Advanced)</span>
-                    <span class="skill-tag expert">Elasticsearch (Expert - 7+ years)</span>
-                </div>
-            </div>
+        </div>
+      </section>
 
-            <div class="skills-category">
-                <h3>Workflow & Integration</h3>
-                <div class="skills-list">
-                    <span class="skill-tag expert">MongoDB & Changestreams (Advanced)</span>
-                    <span class="skill-tag expert">RabbitMQ (Advanced)</span>
-                    <span class="skill-tag expert">Jira APIs (Advanced)</span>
-                    <span class="skill-tag expert">Traefik (Expert)</span>
-                </div>
-            </div>
+      <!-- ============ Skills ============ -->
+      <section class="section" id="skills">
+        <header class="section-head">
+          <span class="section-num">05</span>
+          <h2 class="section-title">Skills</h2>
+          <span class="section-tag">filter by area</span>
+        </header>
 
-            <div class="skills-category">
-                <h3>Security & Compliance</h3>
-                <div class="skills-list">
-                    <span class="skill-tag expert">PCI DSS Compliance (Expert)</span>
-                    <span class="skill-tag expert">Server Hardening (Advanced)</span>
-                    <span class="skill-tag expert">Network Segmentation (Advanced)</span>
-                    <span class="skill-tag expert">Cloud Security Controls (Advanced)</span>
-                    <span class="skill-tag expert">Vulnerability Management (Advanced)</span>
-                    <span class="skill-tag expert">Audit Logging (Advanced)</span>
-                </div>
-            </div>
-        </section>
+        <div class="skill-filter">
+          <span class="filter-label">Show</span>
+          <button class="filter-chip" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-chip" data-filter="lang">Languages</button>
+          <button class="filter-chip" data-filter="containers">Containers</button>
+          <button class="filter-chip" data-filter="cloud">Cloud</button>
+          <button class="filter-chip" data-filter="cicd">CI/CD</button>
+          <button class="filter-chip" data-filter="observe">Observability</button>
+          <button class="filter-chip" data-filter="security">Security</button>
+        </div>
 
-        <section class="section">
-            <h2>Certifications & Education</h2>
-            <div class="cert-grid">
-                <div class="cert-card">
-                    <h4>Certified Kubernetes Administrator (CKA)</h4>
-                    <p class="cert-score">Score: 91% (Top 9th Percentile)</p>
-                    <p>The Linux Foundation</p>
-                </div>
-                <div class="cert-card">
-                    <h4>Certified Kubernetes Application Developer (CKAD)</h4>
-                    <p>The Linux Foundation</p>
-                </div>
-                <div class="cert-card">
-                    <h4>Google Cloud Associate Cloud Engineer</h4>
-                    <p>Google Cloud</p>
-                </div>
-                <div class="cert-card">
-                    <h4>AWS Solution Architect Associate</h4>
-                    <p>Amazon Web Services</p>
-                </div>
-                <div class="cert-card">
-                    <h4>AWS CloudEndure Migration</h4>
-                    <p>Amazon Web Services</p>
-                </div>
-            </div>
-            <div class="education">
-                <h4>B.Tech - Electrical and Electronics Engineering</h4>
-                <p>Pondicherry Engineering College | 2011 - 2015</p>
-            </div>
-        </section>
+        <div class="skills" id="skills-list">
 
-        <section class="section">
-            <h2>Leadership & Mentorship</h2>
-            <div class="achievements-grid">
-                <div class="achievement-card">
-                    <h3>5</h3>
-                    <p>Engineers Led</p>
-                    <small>DevOps Team at NoBroker</small>
-                </div>
-                <div class="achievement-card">
-                    <h3>2 Years</h3>
-                    <p>Team Leadership</p>
-                    <small>Driving Platform Initiatives</small>
-                </div>
-                <div class="achievement-card">
-                    <h3>3+</h3>
-                    <p>Engineers Mentored</p>
-                    <small>Kubernetes & Cloud Skills</small>
-                </div>
-                <div class="achievement-card">
-                    <h3>Cross-Team</h3>
-                    <p>Collaboration</p>
-                    <small>100+ Developers Enabled</small>
-                </div>
+          <div class="skill-group" data-cat="lang">
+            <div>
+              <h3 class="skill-cat">Programming<br>&amp; Automation</h3>
+              <div class="skill-cat-count">5 areas</div>
             </div>
-            <ul class="awards-list" style="margin-top: 20px;">
-                <li><strong>Team Leadership:</strong> Led a team of 5 DevOps engineers at NoBroker, overseeing platform engineering initiatives, infrastructure automation, and production operations</li>
-                <li><strong>Security & Compliance Governance:</strong> Spearheaded PCI DSS certification for NBPay payments system, coordinating security hardening, compliance audits, and cross-team security initiatives</li>
-                <li><strong>Technical Mentorship:</strong> Mentored junior engineers on Kubernetes, CI/CD pipelines, and cloud architecture best practices through pair programming and code reviews</li>
-                <li><strong>Process Establishment:</strong> Established team processes for incident response, on-call rotations, and infrastructure-as-code reviews that improved team efficiency</li>
-                <li><strong>Cross-Functional Collaboration:</strong> Worked closely with development teams to design and deliver self-service platforms, reducing developer bottlenecks</li>
-            </ul>
-        </section>
+            <div class="skill-list">
+              <span class="skill expert">Golang <span class="lvl">advanced</span></span>
+              <span class="skill expert">Python <span class="lvl">advanced</span></span>
+              <span class="skill expert">Bash/Shell <span class="lvl">expert</span></span>
+              <span class="skill expert">Groovy/Jenkins DSL <span class="lvl">advanced</span></span>
+              <span class="skill expert">Perl <span class="lvl">advanced</span></span>
+            </div>
+          </div>
 
-        <section class="section">
-            <h2>Publications & Thought Leadership</h2>
-            <div class="publication">
-                <h4>"Real-Time Log Analysis and Cost-Efficient Log Storage"</h4>
-                <p class="pub-details">Medium | December 2023 | 1,000+ readers</p>
-                <p>Detailed technical article on migrating from Elasticsearch to ClickHouse, achieving 10:1 compression and ₹10L+ cost savings. Covers architecture decisions, implementation challenges, and performance optimization.</p>
-                <a href="https://www.linkedin.com/pulse/real-time-log-analysis-cost-efficient-storage-vicknesh-rethinavelu-hfbqe/" target="_blank">Read Article →</a>
+          <div class="skill-group" data-cat="containers">
+            <div>
+              <h3 class="skill-cat">Containers<br>&amp; Orchestration</h3>
+              <div class="skill-cat-count">4 areas</div>
             </div>
-            <div class="publication">
-                <h4>"Project Blackbox - Our Mysterious Staging Environment"</h4>
-                <p class="pub-details">Medium (NoBroker Engineering) | September 2020 | 30+ engagement</p>
-                <p>Architecture guide for building self-service developer environments using Docker Swarm, Jenkins, and modern DevOps tools. Covers automation workflows and scalability patterns.</p>
-                <a href="https://medium.com/nobroker-engineering/project-blackbox-our-mysterious-staging-environment-b4c005cf7ab1" target="_blank">Read Article →</a>
+            <div class="skill-list">
+              <span class="skill expert">Kubernetes <span class="lvl">CKA 91%</span></span>
+              <span class="skill expert">Docker &amp; Swarm <span class="lvl">expert</span></span>
+              <span class="skill expert">Linkerd Service Mesh <span class="lvl">advanced</span></span>
+              <span class="skill expert">Temporal <span class="lvl">advanced</span></span>
             </div>
-        </section>
+          </div>
 
-        <section class="section">
-            <h2>Awards & Recognition</h2>
-            <ul class="awards-list">
-                <li><strong>Star Performer Award</strong> - NoBroker (2023) - For ClickHouse migration and cost optimization</li>
-                <li><strong>Promoted to Senior DevOps Engineer</strong> - NoBroker (2021) - Recognizing technical leadership</li>
-                <li><strong>SPOT Award</strong> - DXC Technology (2020) - For exceptional Terraform migration delivery</li>
-                <li><strong>Client Performer Award</strong> - Cognizant (2018) - For operational excellence</li>
-            </ul>
-        </section>
-
-        <footer class="footer">
-            <div class="footer-links">
-                <a href="hobbies.html">My Hobbies</a> |
-                <a href="contactme.html">Contact Me</a> |
-                <a href="https://github.com/vicknesh22" target="_blank">GitHub</a> |
-                <a href="https://www.linkedin.com/in/vicknesh22/" target="_blank">LinkedIn</a>
+          <div class="skill-group" data-cat="cloud">
+            <div>
+              <h3 class="skill-cat">Cloud<br>Platforms</h3>
+              <div class="skill-cat-count">3 clouds</div>
             </div>
-            <p class="footer-text">© 2026 Vicknesh Rethinavelu | Platform Engineering Specialist</p>
-            <p class="footer-location">Bengaluru, India | Available for technical leadership roles</p>
-        </footer>
+            <div class="skill-list">
+              <span class="skill expert">AWS <span class="lvl">certified</span></span>
+              <span class="skill expert">Google Cloud <span class="lvl">certified</span></span>
+              <span class="skill expert">Azure <span class="lvl">advanced</span></span>
+              <span class="skill expert">Multi-cloud architecture <span class="lvl">expert</span></span>
+            </div>
+          </div>
+
+          <div class="skill-group" data-cat="cicd">
+            <div>
+              <h3 class="skill-cat">CI/CD<br>&amp; Infra</h3>
+              <div class="skill-cat-count">4 tools</div>
+            </div>
+            <div class="skill-list">
+              <span class="skill expert">Jenkins <span class="lvl">7+ years</span></span>
+              <span class="skill expert">Terraform <span class="lvl">advanced</span></span>
+              <span class="skill expert">GitOps <span class="lvl">expert</span></span>
+              <span class="skill expert">Spinnaker <span class="lvl">advanced</span></span>
+            </div>
+          </div>
+
+          <div class="skill-group" data-cat="observe">
+            <div>
+              <h3 class="skill-cat">Observability<br>&amp; Data</h3>
+              <div class="skill-cat-count">6 tools</div>
+            </div>
+            <div class="skill-list">
+              <span class="skill expert">Prometheus &amp; Grafana <span class="lvl">expert</span></span>
+              <span class="skill expert">ClickHouse <span class="lvl">expert</span></span>
+              <span class="skill expert">Splunk <span class="lvl">advanced</span></span>
+              <span class="skill expert">Fluent Bit <span class="lvl">expert</span></span>
+              <span class="skill expert">Loki <span class="lvl">advanced</span></span>
+              <span class="skill expert">Elasticsearch <span class="lvl">7+ years</span></span>
+            </div>
+          </div>
+
+          <div class="skill-group" data-cat="security">
+            <div>
+              <h3 class="skill-cat">Security<br>&amp; Compliance</h3>
+              <div class="skill-cat-count">6 areas</div>
+            </div>
+            <div class="skill-list">
+              <span class="skill expert">PCI DSS <span class="lvl">lead</span></span>
+              <span class="skill expert">Server Hardening <span class="lvl">advanced</span></span>
+              <span class="skill expert">Network Segmentation <span class="lvl">advanced</span></span>
+              <span class="skill expert">Cloud Security Controls <span class="lvl">advanced</span></span>
+              <span class="skill expert">Vulnerability Mgmt <span class="lvl">advanced</span></span>
+              <span class="skill expert">Audit Logging <span class="lvl">advanced</span></span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============ Certifications ============ -->
+      <section class="section" id="certs">
+        <header class="section-head">
+          <span class="section-num">06</span>
+          <h2 class="section-title">Credentials</h2>
+          <span class="section-tag">certifications &amp; education</span>
+        </header>
+
+        <div class="cert-grid">
+          <div class="cert">
+            <h3 class="cert-name">Certified Kubernetes Administrator</h3>
+            <div class="cert-meta">
+              <span>The Linux Foundation</span>
+              <span class="cert-score">91% · Top 9th pct</span>
+            </div>
+          </div>
+          <div class="cert">
+            <h3 class="cert-name">Certified Kubernetes Application Developer</h3>
+            <div class="cert-meta">
+              <span>The Linux Foundation</span>
+            </div>
+          </div>
+          <div class="cert">
+            <h3 class="cert-name">Associate Cloud Engineer</h3>
+            <div class="cert-meta">
+              <span>Google Cloud</span>
+            </div>
+          </div>
+          <div class="cert">
+            <h3 class="cert-name">Solution Architect Associate</h3>
+            <div class="cert-meta">
+              <span>Amazon Web Services</span>
+            </div>
+          </div>
+          <div class="cert">
+            <h3 class="cert-name">CloudEndure Migration</h3>
+            <div class="cert-meta">
+              <span>Amazon Web Services</span>
+            </div>
+          </div>
+          <div class="cert">
+            <h3 class="cert-name">WebSphere</h3>
+            <div class="cert-meta">
+              <span>IBM</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="education">
+          <h3>B.Tech, Electrical &amp; Electronics Engineering</h3>
+          <div class="school">Pondicherry Engineering College · 2011 — 2015</div>
+          <p style="margin: 10px 0 0; font-size: 14px; color: var(--fg-soft);">
+            Capstone: <em>Modelling and analysis of high-boost DC–DC converter</em> — published in IEEE.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ Publications ============ -->
+      <section class="section" id="publications">
+        <header class="section-head">
+          <span class="section-num">07</span>
+          <h2 class="section-title">Publications</h2>
+          <span class="section-tag">1,000+ readers</span>
+        </header>
+
+        <article class="pub">
+          <h3 class="pub-title">Real-Time Log Analysis and Cost-Efficient Log Storage</h3>
+          <div class="pub-meta">LinkedIn / Medium · Dec 2023 · 1,000+ readers</div>
+          <p class="pub-desc">
+            Technical deep-dive on migrating from Elasticsearch to ClickHouse — architecture
+            decisions, compression strategy, performance benchmarks, and the path to ₹10L+ savings.
+          </p>
+          <a class="pub-link" href="https://www.linkedin.com/pulse/real-time-log-analysis-cost-efficient-storage-vicknesh-rethinavelu-hfbqe/" target="_blank">Read on LinkedIn →</a>
+        </article>
+
+        <article class="pub">
+          <h3 class="pub-title">Project Blackbox — Our Mysterious Staging Environment</h3>
+          <div class="pub-meta">NoBroker Engineering on Medium · Sep 2020</div>
+          <p class="pub-desc">
+            Architecture guide for self-service developer environments built on Docker Swarm,
+            Jenkins, and Traefik. Covers automation workflows and scalability patterns.
+          </p>
+          <a class="pub-link" href="https://medium.com/nobroker-engineering/project-blackbox-our-mysterious-staging-environment-b4c005cf7ab1" target="_blank">Read on Medium →</a>
+        </article>
+      </section>
+
+      <!-- ============ Awards ============ -->
+      <section class="section" id="awards">
+        <header class="section-head">
+          <span class="section-num">08</span>
+          <h2 class="section-title">Awards</h2>
+          <span class="section-tag">recognition</span>
+        </header>
+        <ul class="awards">
+          <li>
+            <span class="awards-year">2023</span>
+            <span class="awards-name"><strong>Star Performer</strong> — for ClickHouse migration &amp; cost optimization</span>
+            <span class="awards-org">NoBroker</span>
+          </li>
+          <li>
+            <span class="awards-year">2021</span>
+            <span class="awards-name"><strong>Promotion</strong> — to Senior DevOps Engineer for technical leadership</span>
+            <span class="awards-org">NoBroker</span>
+          </li>
+          <li>
+            <span class="awards-year">2020</span>
+            <span class="awards-name"><strong>SPOT Award</strong> — for exceptional Terraform migration delivery</span>
+            <span class="awards-org">DXC Technology</span>
+          </li>
+          <li>
+            <span class="awards-year">2018</span>
+            <span class="awards-name"><strong>Client Performer</strong> — for operational excellence</span>
+            <span class="awards-org">Cognizant</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ============ Beyond Work ============ -->
+      <section class="section" id="beyond">
+        <header class="section-head">
+          <span class="section-num">09</span>
+          <h2 class="section-title">Beyond work</h2>
+          <span class="section-tag">hobbies &amp; tinkering</span>
+        </header>
+
+        <div class="hobbies">
+          <div class="hobby">
+            <span class="hobby-tag">Sport</span>
+            <h3>Badminton</h3>
+            <p>Active player — recreational and competitive. Strategy, quick decisions, teamwork. The good kind of tired.</p>
+          </div>
+          <div class="hobby">
+            <span class="hobby-tag">Side build</span>
+            <h3>Android development</h3>
+            <p>Mobile app exploration — a different end of the SDLC, which keeps my empathy for the developers I support sharp.</p>
+          </div>
+          <div class="hobby">
+            <span class="hobby-tag">Game</span>
+            <h3>FIFA on Xbox</h3>
+            <p>Pattern recognition, adaptation, and recovering from a losing scoreline — strangely transferable skills.</p>
+          </div>
+          <div class="hobby">
+            <span class="hobby-tag">Home lab</span>
+            <h3>Pi-hole + Unbound DNS</h3>
+            <p>Network-wide ad-blocking on a Raspberry Pi. Recursive DNS resolver, custom blocklists, monitoring — no third-party DNS providers.</p>
+          </div>
+          <div class="hobby">
+            <span class="hobby-tag">Open source</span>
+            <h3>Traefik community</h3>
+            <p>Active contributor — helping users in the community forum debug issues I've already encountered.</p>
+          </div>
+          <div class="hobby">
+            <span class="hobby-tag">Side project</span>
+            <h3>Wedding invitation site</h3>
+            <p>Custom-built and hosted on GitHub Pages. Schedule, gallery, venue map — the most personally meaningful deploy on my résumé.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Contact ============ -->
+      <section class="section" id="contact">
+        <header class="section-head">
+          <span class="section-num">10</span>
+          <h2 class="section-title">Let's talk</h2>
+          <span class="section-tag">open to roles</span>
+        </header>
+
+        <p class="prose lede" style="margin-bottom: 36px;">
+          Open to <em>senior platform engineering</em>, <em>cloud infrastructure leadership</em>,
+          and <em>SRE / DevOps team-lead</em> roles. Remote, hybrid, or on-site.
+        </p>
+
+        <div class="contact">
+          <div class="contact-row">
+            <div class="contact-label">Email</div>
+            <div class="contact-value"><a href="mailto:vicknesh22@gmail.com">vicknesh22@gmail.com</a></div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-value"><a href="https://www.linkedin.com/in/vicknesh22/" target="_blank">/in/vicknesh22</a></div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-label">GitHub</div>
+            <div class="contact-value"><a href="https://github.com/vicknesh22" target="_blank">@vicknesh22</a></div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-label">Location</div>
+            <div class="contact-value">Bengaluru, India</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Footer ============ -->
+      <footer class="footer">
+        <div>© 2026 Vicknesh Rethinavelu</div>
+        <div class="footer-links">
+          <a href="#top">Top ↑</a>
+          <a href="resume.html">Print resume</a>
+          <a href="https://github.com/vicknesh22/cv" target="_blank">Source</a>
+        </div>
+      </footer>
+
     </div>
+  </main>
+</div>
 
-    <!-- Floating Action Buttons -->
-    <div class="floating-actions">
-        <button class="fab" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-            </svg>
-        </button>
-        <button class="fab" onclick="window.print()" aria-label="Print or Download CV">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-            </svg>
-        </button>
+<!-- ============ Tweaks ============ -->
+<aside class="tweaks-panel" id="tweaks">
+  <div class="tweaks-head">
+    <h3>Tweaks</h3>
+    <button class="tweaks-close" id="tweaks-close" aria-label="Close">×</button>
+  </div>
+
+  <div class="tweak">
+    <span class="tweak-label">Theme</span>
+    <div class="tweak-row">
+      <button data-tweak="theme" data-val="light">Light</button>
+      <button data-tweak="theme" data-val="dark">Dark</button>
     </div>
+  </div>
 
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="tweak">
+    <span class="tweak-label">Density</span>
+    <div class="tweak-row">
+      <button data-tweak="density" data-val="comfortable">Comfortable</button>
+      <button data-tweak="density" data-val="compact">Compact</button>
+    </div>
+  </div>
 
-    <!-- Scroll Progress Script -->
-    <script>
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('scrollProgress').style.width = scrolled + '%';
-        });
-    </script>
+  <div class="tweak">
+    <span class="tweak-label">Accent</span>
+    <div class="tweak-swatches">
+      <button class="swatch" data-tweak="accent" data-val="terracotta" style="background:oklch(0.56 0.13 40);" title="Terracotta"></button>
+      <button class="swatch" data-tweak="accent" data-val="blue" style="background:oklch(0.55 0.13 250);" title="Blue"></button>
+      <button class="swatch" data-tweak="accent" data-val="green" style="background:oklch(0.55 0.13 155);" title="Green"></button>
+      <button class="swatch" data-tweak="accent" data-val="violet" style="background:oklch(0.55 0.13 300);" title="Violet"></button>
+      <button class="swatch" data-tweak="accent" data-val="ink" style="background:oklch(0.3 0.01 80);" title="Ink"></button>
+    </div>
+  </div>
+</aside>
+
+<script>
+/* ------------------------------------------------------------------
+   Theme persistence
+------------------------------------------------------------------ */
+const root = document.documentElement;
+const stored = JSON.parse(localStorage.getItem('cv-prefs') || '{}');
+if (stored.theme) root.dataset.theme = stored.theme;
+if (stored.density) root.dataset.density = stored.density;
+
+function savePrefs(patch) {
+  const cur = JSON.parse(localStorage.getItem('cv-prefs') || '{}');
+  Object.assign(cur, patch);
+  localStorage.setItem('cv-prefs', JSON.stringify(cur));
+}
+
+const accents = {
+  terracotta: { l: 0.56, c: 0.13, h: 40, dl: 0.72, ds: 0.32, dh: 45, soft: 'oklch(0.94 0.04 40)', dsoft: 'oklch(0.32 0.06 45)' },
+  blue:       { l: 0.55, c: 0.13, h: 250, dl: 0.72, ds: 0.3, dh: 250, soft: 'oklch(0.94 0.04 250)', dsoft: 'oklch(0.32 0.06 250)' },
+  green:      { l: 0.5, c: 0.13, h: 155, dl: 0.7, ds: 0.32, dh: 155, soft: 'oklch(0.93 0.05 155)', dsoft: 'oklch(0.3 0.07 155)' },
+  violet:     { l: 0.55, c: 0.13, h: 300, dl: 0.72, ds: 0.32, dh: 300, soft: 'oklch(0.93 0.05 300)', dsoft: 'oklch(0.32 0.06 300)' },
+  ink:        { l: 0.3, c: 0.01, h: 80, dl: 0.85, ds: 0.32, dh: 80, soft: 'oklch(0.9 0.005 80)', dsoft: 'oklch(0.3 0.005 80)' },
+};
+
+function applyAccent(name) {
+  const a = accents[name] || accents.terracotta;
+  const isDark = root.dataset.theme === 'dark';
+  root.style.setProperty('--accent', isDark ? `oklch(${a.dl} ${a.c} ${a.dh})` : `oklch(${a.l} ${a.c} ${a.h})`);
+  root.style.setProperty('--accent-soft', isDark ? a.dsoft : a.soft);
+}
+if (stored.accent) applyAccent(stored.accent);
+
+/* sync swatch pressed state */
+function syncTweaks() {
+  document.querySelectorAll('[data-tweak]').forEach(b => {
+    const k = b.dataset.tweak;
+    const v = b.dataset.val;
+    const cur = (k === 'theme') ? root.dataset.theme : (k === 'density') ? root.dataset.density : (stored.accent || 'terracotta');
+    b.setAttribute('aria-pressed', cur === v);
+  });
+}
+syncTweaks();
+
+/* ------------------------------------------------------------------
+   Theme toggle (top bar shortcut)
+------------------------------------------------------------------ */
+document.getElementById('theme-toggle').addEventListener('click', () => {
+  const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+  root.dataset.theme = next;
+  savePrefs({ theme: next });
+  if (stored.accent) applyAccent(stored.accent); else applyAccent('terracotta');
+  stored.theme = next;
+  syncTweaks();
+});
+
+/* ------------------------------------------------------------------
+   Tweaks panel
+------------------------------------------------------------------ */
+const tweaks = document.getElementById('tweaks');
+document.getElementById('tweaks-toggle').addEventListener('click', () => tweaks.classList.toggle('open'));
+document.getElementById('tweaks-close').addEventListener('click', () => tweaks.classList.remove('open'));
+
+document.querySelectorAll('[data-tweak]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const k = btn.dataset.tweak;
+    const v = btn.dataset.val;
+    if (k === 'theme') { root.dataset.theme = v; stored.theme = v; savePrefs({ theme: v }); applyAccent(stored.accent || 'terracotta'); }
+    else if (k === 'density') { root.dataset.density = v; stored.density = v; savePrefs({ density: v }); }
+    else if (k === 'accent') { applyAccent(v); stored.accent = v; savePrefs({ accent: v }); }
+    syncTweaks();
+  });
+});
+
+/* ------------------------------------------------------------------
+   Reading progress + scroll spy
+------------------------------------------------------------------ */
+const progress = document.getElementById('progress');
+const sections = [...document.querySelectorAll('.section, .hero')];
+const tocLinks = [...document.querySelectorAll('.toc a')];
+const sectionIds = ['about','impact','experience','projects','skills','certs','publications','awards','beyond','contact'];
+
+window.addEventListener('scroll', () => {
+  const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  progress.style.width = (winScroll / height * 100) + '%';
+
+  // scroll spy
+  const y = winScroll + 120;
+  let activeId = sectionIds[0];
+  for (const id of sectionIds) {
+    const el = document.getElementById(id);
+    if (el && el.offsetTop <= y) activeId = id;
+  }
+  tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + activeId));
+  // Crumb labels for each section id
+  const crumbLabels = {
+    about: { n: '01', name: 'About' },
+    impact: { n: '02', name: 'Impact' },
+    experience: { n: '03', name: 'Experience' },
+    projects: { n: '04', name: 'Projects' },
+    skills: { n: '05', name: 'Skills' },
+    certs: { n: '06', name: 'Credentials' },
+    publications: { n: '07', name: 'Publications' },
+    awards: { n: '08', name: 'Awards' },
+    beyond: { n: '09', name: 'Beyond Work' },
+    contact: { n: '10', name: 'Contact' },
+  };
+  const crumbEl = document.getElementById('crumb');
+  const crumbNum = document.getElementById('crumb-num');
+  const crumbName = document.getElementById('crumb-name');
+
+  // Hide crumb above the hero; show once we're past it
+  const heroEl = document.querySelector('.hero');
+  const pastHero = winScroll > (heroEl ? heroEl.offsetTop + heroEl.offsetHeight - 80 : 200);
+  crumbEl.classList.toggle('visible', pastHero);
+
+  const label = crumbLabels[activeId];
+  if (label && crumbNum.textContent !== label.n) {
+    crumbNum.textContent = label.n;
+    crumbName.textContent = label.name;
+  }
+}, { passive: true });
+
+/* ------------------------------------------------------------------
+   Expandable roles
+------------------------------------------------------------------ */
+function toggleRole(role) {
+  const open = role.dataset.open === 'true';
+  role.dataset.open = !open;
+  const lbl = role.querySelector('.toggle-label');
+  if (lbl) lbl.textContent = open ? 'Show details' : 'Hide details';
+}
+window.toggleRole = toggleRole;
+
+document.getElementById('expand-all').addEventListener('click', (e) => {
+  e.stopPropagation();
+  const roles = document.querySelectorAll('.role');
+  const anyClosed = [...roles].some(r => r.dataset.open !== 'true');
+  roles.forEach(r => {
+    r.dataset.open = anyClosed;
+    const lbl = r.querySelector('.toggle-label');
+    if (lbl) lbl.textContent = anyClosed ? 'Hide details' : 'Show details';
+  });
+  e.currentTarget.textContent = anyClosed ? 'Collapse all' : 'Expand all';
+});
+
+/* ------------------------------------------------------------------
+   Skill filter
+------------------------------------------------------------------ */
+document.querySelectorAll('.skill-filter .filter-chip').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.skill-filter .filter-chip').forEach(b => b.setAttribute('aria-pressed', 'false'));
+    btn.setAttribute('aria-pressed', 'true');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.skill-group').forEach(g => {
+      g.classList.toggle('dimmed', f !== 'all' && g.dataset.cat !== f);
+    });
+  });
+});
+
+/* ------------------------------------------------------------------
+   Reading-time estimate (rough)
+------------------------------------------------------------------ */
+const wordCount = document.querySelector('.content').innerText.split(/\s+/).filter(Boolean).length;
+document.getElementById('read-time').textContent = '~' + Math.max(8, Math.round(wordCount / 220)) + ' min';
+
+</script>
+
 </body>
 </html>

@@ -242,13 +242,6 @@
 </head>
 <body>
     <button class="print-button no-print" onclick="window.print()">Print / Save as PDF</button>
-    <script>
-      // Auto-open print dialog when launched with ?print=1 (used by the
-      // "Download résumé" button on the main CV page).
-      if (new URLSearchParams(location.search).get('print') === '1') {
-        window.addEventListener('load', () => setTimeout(() => window.print(), 400));
-      }
-    </script>
 
     <div class="resume-container">
         <!-- Header -->

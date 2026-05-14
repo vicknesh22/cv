@@ -457,13 +457,65 @@ em { font-style: italic; font-family: var(--font-display); font-size: 1.05em; }
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  object-fit: cover;
-  background: var(--bg-elev);
+  /* Lock the avatar to a paper-cream background so the line-art always reads
+     the same in both themes — like a small framed portrait inset on dark bg */
+  background: oklch(0.96 0.008 85);
   border: 1px solid var(--border);
   flex-shrink: 0;
   margin-right: 8px;
-  filter: sepia(0.12) saturate(1.05) contrast(1.02);
-  transition: filter 0.2s, border-color 0.2s;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+/* Avatar line-art always drawn in a warm near-black on the cream */
+.hero-portrait::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: oklch(0.18 0.012 70);
+  -webkit-mask: url("avatar.png") center 0 / 112% 112% no-repeat;
+  mask: url("avatar.png") center 0 / 112% 112% no-repeat;
+}
+.hero-portrait-link:hover .hero-portrait { border-color: var(--accent); transform: rotate(-3deg); }
+
+/* Typographic monogram avatar */
+.hero-monogram {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-right: 8px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 40px;
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+  user-select: none;
+}
+.hero-monogram::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, color-mix(in oklch, var(--accent) 12%, transparent), transparent 60%);
+  pointer-events: none;
+}
+.hero-monogram span {
+  position: relative;
+  display: inline-block;
+  transform: translateY(-2px);
+}
+.hero-portrait-link:hover .hero-monogram {
+  border-color: var(--accent);
+  transform: rotate(-4deg);
 }
 .hero-portrait-link {
   display: inline-flex;
@@ -1612,7 +1664,7 @@ html[data-theme="dark"] .cp-item.active .cp-item-sub { color: oklch(0.85 0.04 45
       <section class="hero">
         <div class="hero-meta">
           <a href="https://www.linkedin.com/in/vicknesh22/" target="_blank" rel="noopener" class="hero-portrait-link" aria-label="Vicknesh Rethinavelu on LinkedIn" title="View LinkedIn profile">
-            <img src="vicknesh.png" alt="Vicknesh Rethinavelu" class="hero-portrait" loading="eager">
+            <div class="hero-portrait" role="img" aria-label="Avatar"></div>
           </a>
           <span>Bengaluru, India</span>
           <span class="dot">9+ years</span>
